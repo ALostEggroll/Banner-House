@@ -4,7 +4,7 @@ using UnityEngine;
 
 /*
     This is the class CombatUnit. It holds basic values used by all units
-    To be used by both heros and enemies
+    To be used by both allies and enemies
 
     Class made by Dexter Estrada (dexter.estrada99@gmail.com)
 */
@@ -12,10 +12,10 @@ using UnityEngine;
 public class CombatUnit : ScriptableObject
 {
     // Name and description of unit
-    public string unitName;
+    public new string name;
     public string description;
 
-    // unit sprite?
+    // Unit in-game sprite
     public Sprite sprite;
     // Unit artwork?
     public Sprite artwork;
