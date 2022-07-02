@@ -17,6 +17,7 @@ public class CombatUnitDisplay : MonoBehaviour
     // The name and description of the unit
     public Text unitName;
     public Text description;
+    public Text unitClass;
 
     // The artwork of the image
     public Image portrait;
@@ -30,8 +31,9 @@ public class CombatUnitDisplay : MonoBehaviour
     // Use this for initializaton
     void Start () 
     {
-        unitName.text = unit.unitName;
+        unitName.text = unit.name;
         description.text = unit.description;
+        unitClass.text = unit.classType;
 
         portrait.sprite = unit.artwork;
 

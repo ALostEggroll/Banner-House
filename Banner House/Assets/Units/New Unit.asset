@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4580417df7446b4896138f4984ccdf7, type: 3}
   m_Name: New Unit
   m_EditorClassIdentifier: 
-  unitName: Test
+  name: Test unit
   description: This is a sample description for a single unit
+  classType: Warrior
   sprite: {fileID: 0}
   artwork: {fileID: 0}
   currentHealth: 10
-  maxHealth: 0
+  maxHealth: 10
   attack: 2
   attackRate: 0.5

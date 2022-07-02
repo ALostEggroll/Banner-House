@@ -14,6 +14,7 @@ public class CombatUnit : ScriptableObject
     // Name and description of unit
     public new string name;
     public string description;
+    public string classType;    // Warrior, mage, etc
 
     // Unit in-game sprite
     public Sprite sprite;
