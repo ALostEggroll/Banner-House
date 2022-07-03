@@ -25,15 +25,28 @@ public class CharacterManager : MonoBehaviour
         defense = CombatUnit.defense;
     }
 
-    public void takeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         damage -= defense;
+        // Checking if attack did damage
+        if (damage < 0)
+            damage = 0;
         Debug.Log(transform.name + " took " + damage + " damage");
+
         currentHealth -= damage;
 
         if (currentHealth <= 0)
         {
             // character is now dead
         }
+    }
+
+    public void AddHealth(int heal)
+    {
+        currentHealth += heal;
+        // Checking if health goes over max health
+        if (currentHealth > maxHealth)
+            currentHealth = maxHealth;
+        Debug.Log(transform.name + " healed for " + heal + " health");
     }
 }

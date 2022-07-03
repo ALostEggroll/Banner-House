@@ -14,7 +14,7 @@ public class CombatUnit : ScriptableObject
     // Name and description of unit
     public new string name;
     public string description;
-    public enum classType {Warrior, Rouge, Mage, Support}
+    public classType classType;
 
     // In-game model
     public GameObject model;
@@ -27,3 +27,4 @@ public class CombatUnit : ScriptableObject
     public float attackRate;    // The frequency of attack
     public int defense;         // The defense of the unit
 }
+public enum classType { Warrior, Rouge, Mage, Support }

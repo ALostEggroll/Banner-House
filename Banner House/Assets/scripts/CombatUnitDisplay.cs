@@ -14,7 +14,6 @@ public class CombatUnitDisplay : MonoBehaviour
     // The unit being referenced
     public CombatUnit unit;
     
-    /*
     // The name and description of the unit
     public Text unitName;
     public Text description;
@@ -24,7 +23,6 @@ public class CombatUnitDisplay : MonoBehaviour
     public Image portrait;
 
     // The combat stats to display
-    public Text currentHealth;
     public Text maxHealth;
     public Text attack;
     public Text attackRate;
@@ -34,14 +32,12 @@ public class CombatUnitDisplay : MonoBehaviour
     {
         unitName.text = unit.name;
         description.text = unit.description;
-        //unitClass.text = unit.classType.Mage;
+        unitClass.text = nameof(unit.classType);
 
         portrait.sprite = unit.artwork;
 
-        currentHealth.text = unit.currentHealth.ToString();
         maxHealth.text = unit.maxHealth.ToString();
         attack.text = unit.attack.ToString();
         attackRate.text = unit.attackRate.ToString();
     }
-    */
 }

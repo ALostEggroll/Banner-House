@@ -4,11 +4,11 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - unit: {fileID: 11400000, guid: e6985ef285241ea4f959a33faadfeeb7, type: 2}
+  - unit: {fileID: 11400000, guid: 4b7d4ae1783da0246920a99d34ee4f59, type: 2}
   - unitName: {instanceID: 0}
   - description: {instanceID: 0}
+  - unitClass: {instanceID: 0}
   - portrait: {instanceID: 0}
-  - currentHealth: {instanceID: 0}
   - maxHealth: {instanceID: 0}
   - attack: {instanceID: 0}
   - attackRate: {instanceID: 0}
