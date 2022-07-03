@@ -14,6 +14,7 @@ public class CombatUnitDisplay : MonoBehaviour
     // The unit being referenced
     public CombatUnit unit;
     
+    /*
     // The name and description of the unit
     public Text unitName;
     public Text description;
@@ -33,7 +34,7 @@ public class CombatUnitDisplay : MonoBehaviour
     {
         unitName.text = unit.name;
         description.text = unit.description;
-        unitClass.text = unit.classType;
+        //unitClass.text = unit.classType.Mage;
 
         portrait.sprite = unit.artwork;
 
@@ -42,4 +43,5 @@ public class CombatUnitDisplay : MonoBehaviour
         attack.text = unit.attack.ToString();
         attackRate.text = unit.attackRate.ToString();
     }
+    */
 }
