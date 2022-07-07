@@ -206,7 +206,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 169308194}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1222601141}
+        m_TargetAssemblyTypeName: ButtonScenes, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: combat 1
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &169308194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,7 +340,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 287318533}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1222601141}
+        m_TargetAssemblyTypeName: ButtonScenes, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: combat 3
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &287318533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -885,7 +909,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1931474190}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1222601141}
+        m_TargetAssemblyTypeName: ButtonScenes, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: combat 2
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1931474190
 MonoBehaviour:
   m_ObjectHideFlags: 0
