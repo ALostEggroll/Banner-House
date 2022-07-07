@@ -17,12 +17,12 @@ public class CombatUnitDisplay : MonoBehaviour
     // The name and description of the unit
     public Text unitName;
     public Text description;
+    public Text unitClass;
 
     // The artwork of the image
     public Image portrait;
 
     // The combat stats to display
-    public Text currentHealth;
     public Text maxHealth;
     public Text attack;
     public Text attackRate;
@@ -30,12 +30,12 @@ public class CombatUnitDisplay : MonoBehaviour
     // Use this for initializaton
     void Start () 
     {
-        unitName.text = unit.unitName;
+        unitName.text = unit.name;
         description.text = unit.description;
+        unitClass.text = nameof(unit.classType);
 
         portrait.sprite = unit.artwork;
 
-        currentHealth.text = unit.currentHealth.ToString();
         maxHealth.text = unit.maxHealth.ToString();
         attack.text = unit.attack.ToString();
         attackRate.text = unit.attackRate.ToString();
