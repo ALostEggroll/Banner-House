@@ -5,11 +5,7 @@ using UnityEngine;
 public class CombatManager : MonoBehaviour
 {
     #region Singleton
-    private static CombatManager instance;
-    public static CombatManager Instance
-    {
-        get { return instance; }
-    }
+    public static CombatManager instance;
 
     private void Awake()
     {

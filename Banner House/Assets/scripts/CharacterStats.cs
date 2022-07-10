@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- * This class manages every character's health
+ * This class manages every character's stats
  */
-public class CharacterManager : MonoBehaviour
+public class CharacterStats : MonoBehaviour
 {
     public CombatUnit CombatUnit;
 
