@@ -8,28 +8,35 @@ using UnityEngine.AI;
  */
 public class CharacterCombatController : MonoBehaviour
 {
-    Transform currentTarget;    // Current targeted unit
+    [SerializeField] Transform currentTarget;    // Current targeted unit
     NavMeshAgent agent;         // This unit
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         // Choosing this unit as agent
         agent = GetComponent<NavMeshAgent>();
 
         // Finding closest target and choose target
-
+        //currentTarget = CombatManager.instance.enemy.transform;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        agent.SetDestination(currentTarget.position);
     }
 
+    /*
     // This function finds the closest enemy to this unit
-    Transform findclosest()
+    Transform findclosest(GameObject enemy)
     {
-
+        Transform closestUnit = null;
+        float distance;
+        foreach (GameObject obj in objects)
+        {
+            float temp = Vector3.Distance(obj.transform.position, transform.position);
+            if (temp < distance)
+                distance = temp;
+        }
     }
+    */
 }

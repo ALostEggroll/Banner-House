@@ -13,6 +13,6 @@ public class CombatManager : MonoBehaviour
     }
     #endregion
 
-    [SerializeField] public GameObject[] allies;
-    [SerializeField] public GameObject[] enemies;
+    [SerializeField] public GameObject ally;
+    [SerializeField] public GameObject enemy;
 }
