@@ -9,25 +9,27 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class CharacterCombatController : MonoBehaviour
 {
-    Transform currentTarget;    // Current targeted unit
-    NavMeshAgent agent;         // This unit
-    public team team { get; set; }
+    public Transform currentTarget;    // Current targeted unit
+    public NavMeshAgent agent;         // This unit
+    //[SerializeField] public team team { get; set; }
 
-    void Awake()
+    void Start()
     {
         // Choosing this unit as agent
-        agent = GetComponent<NavMeshAgent>();
+        //agent = GetComponent<NavMeshAgent>();
 
+        /*
         // Adding to CombatManager
         CombatManager.Instance.addUnit(this);
 
         // Finding closest target and choose target
         currentTarget = CombatManager.Instance.getEnemy(this)[0].transform;
+        */
     }
 
     void Update()
     {
-        agent.SetDestination(currentTarget.position);
+        //agent.SetDestination(currentTarget.position);
     }
 
     // This function finds the closest enemy to this unit
@@ -51,8 +53,10 @@ public class CharacterCombatController : MonoBehaviour
         return closestUnit;
     }
 }
+/*
 public enum team
 {
     team1,
     team2,
 }
+*/

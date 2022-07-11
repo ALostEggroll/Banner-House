@@ -30,6 +30,7 @@ public class CombatManager : MonoBehaviour
     /*
      * Sorts the NavMesh based on what team they're on
      */
+    /*
     public void addUnit(CharacterCombatController unit)
     {
         switch (unit.team)
@@ -42,10 +43,12 @@ public class CombatManager : MonoBehaviour
                 break;
         }
     }
+    */
 
     /*
      * Returns a list of the enemy
      */
+    /*
     public List<CharacterCombatController> getEnemy(CharacterCombatController unit)
     {
         switch (unit.team)
@@ -57,4 +60,5 @@ public class CombatManager : MonoBehaviour
         }
         return null;
     }
+    */
 }
