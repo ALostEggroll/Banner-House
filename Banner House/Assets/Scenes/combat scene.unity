@@ -327,6 +327,7 @@ GameObject:
   - component: {fileID: 1252802981}
   - component: {fileID: 1252802980}
   - component: {fileID: 1252802984}
+  - component: {fileID: 1252802985}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -444,7 +445,7 @@ NavMeshAgent:
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 0
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -453,6 +454,18 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1252802985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252802979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3fa3cacd8b31bf47a71537f263f9a5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1406438282
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,8 +495,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46d9db83fb8191d4e8292565ce8b1596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ally: {fileID: 1935664097}
-  enemy: {fileID: 1252802979}
+  team1: []
+  team2: []
 --- !u!4 &1406438284
 Transform:
   m_ObjectHideFlags: 0
@@ -735,7 +748,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3fa3cacd8b31bf47a71537f263f9a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTarget: {fileID: 1252802983}
 --- !u!1 &2011095743
 GameObject:
   m_ObjectHideFlags: 0
