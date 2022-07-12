@@ -3,38 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class team2Controller : CharacterCombatController
+public class team2Controller : UnitController
 {
     // Start is called before the first frame update
     void Start()
     {
-        // Choosing this unit as agent
-        agent = GetComponent<NavMeshAgent>();
-
+        FirstLoad();
         // Adding to CombatManager
         CombatManager.Instance.team2.Add(this);
-
-        attackRadius = unit.attackRadius;
-        agent.stoppingDistance = attackRadius;
     }
     private void Update()
     {
-        if (currentTarget == null)
-        {
-            // Finding closest target and choose target
-            currentTarget = FindClosest(CombatManager.Instance.team1);
-        }
-        else
-        {
-            agent.SetDestination(currentTarget.position);
-        }
+        UnitLogic();
     }
-    /*
-     * Shows attack radius of character
-     */
-    void OnDrawGizmos()
+
+    public override void SetCurrentTarget()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRadius);
+        base.SetCurrentTarget();
+        // Finding closest target and choose target
+        currentTarget = FindClosest(CombatManager.Instance.team1);
     }
 }

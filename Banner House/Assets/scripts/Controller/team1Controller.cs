@@ -3,31 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class team1Controller : CharacterCombatController
+public class team1Controller : UnitController
 {
     // Start is called before the first frame update
     void Start()
     {
-        // Choosing this unit as agent
-        agent = GetComponent<NavMeshAgent>();
-
+        FirstLoad();
         // Adding to CombatManager
         CombatManager.Instance.team1.Add(this);
-
-        attackRadius = unit.attackRadius;
-        agent.stoppingDistance = attackRadius;
     }
-
     private void Update()
     {
-        if (currentTarget == null)
-        {
-            // Finding closest target and choose target
-            currentTarget = FindClosest(CombatManager.Instance.team2);
-        }
-        else
-        {
-            agent.SetDestination(currentTarget.position);
-        }
+        UnitLogic();
+    }
+    public override void SetCurrentTarget()
+    {
+        base.SetCurrentTarget();
+        // Finding closest target and choose target
+        currentTarget = FindClosest(CombatManager.Instance.team2);
     }
 }

@@ -24,7 +24,7 @@ public class CombatManager : MonoBehaviour
     }
     #endregion
 
-    public List<CharacterCombatController> team1 = new List<CharacterCombatController>();
-    public List<CharacterCombatController> team2 = new List<CharacterCombatController>();
+    public List<UnitController> team1 = new List<UnitController>();
+    public List<UnitController> team2 = new List<UnitController>();
 
 }
