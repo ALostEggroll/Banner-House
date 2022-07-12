@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,7 +21,7 @@ public class team1Controller : CharacterCombatController
         if (currentTarget == null)
         {
             // Finding closest target and choose target
-            currentTarget = CombatManager.Instance.team2[0].transform;
+            currentTarget = FindClosest(CombatManager.Instance.team2);
         }
         else
         {

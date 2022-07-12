@@ -328,6 +328,7 @@ GameObject:
   - component: {fileID: 1252802980}
   - component: {fileID: 1252802984}
   - component: {fileID: 1252802985}
+  - component: {fileID: 1252802986}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -468,6 +469,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTarget: {fileID: 0}
   agent: {fileID: 0}
+--- !u!114 &1252802986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252802979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b90b1c1f2ae224aa7cec9c9bcc435c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CombatUnit: {fileID: 11400000, guid: 4b7d4ae1783da0246920a99d34ee4f59, type: 2}
+  maxHealth: 0
+  attack: 0
+  attackRate: 0
+  attackRadius: 0
+  defense: 0
 --- !u!1 &1406438282
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,6 +631,7 @@ GameObject:
   - component: {fileID: 1935664101}
   - component: {fileID: 1935664102}
   - component: {fileID: 1935664103}
+  - component: {fileID: 1935664104}
   m_Layer: 0
   m_Name: Ally
   m_TagString: Untagged
@@ -752,6 +772,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTarget: {fileID: 0}
   agent: {fileID: 0}
+--- !u!114 &1935664104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935664097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b90b1c1f2ae224aa7cec9c9bcc435c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CombatUnit: {fileID: 11400000, guid: 4b7d4ae1783da0246920a99d34ee4f59, type: 2}
+  maxHealth: 0
+  attack: 0
+  attackRate: 0
+  attackRadius: 0
+  defense: 0
 --- !u!1 &2011095743
 GameObject:
   m_ObjectHideFlags: 0

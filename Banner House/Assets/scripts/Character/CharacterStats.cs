@@ -14,6 +14,7 @@ public class CharacterStats : MonoBehaviour
 
     public int attack;
     public float attackRate;
+    public float attackRadius;
     public int defense;
 
     // Initializes the character with stats saved in CombatUnit
@@ -22,6 +23,7 @@ public class CharacterStats : MonoBehaviour
         maxHealth = CombatUnit.maxHealth;
         attack = CombatUnit.attack;
         attackRate = CombatUnit.attackRate;
+        attackRadius = CombatUnit.attackRadius;
         defense = CombatUnit.defense;
     }
 

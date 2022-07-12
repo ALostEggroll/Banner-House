@@ -19,7 +19,7 @@ public class team2Controller : CharacterCombatController
         if (currentTarget == null)
         {
             // Finding closest target and choose target
-            currentTarget = CombatManager.Instance.team1[0].transform;
+            currentTarget = FindClosest(CombatManager.Instance.team1);
         }
         else
         {
