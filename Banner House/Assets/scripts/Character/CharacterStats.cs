@@ -38,9 +38,13 @@ public class CharacterStats : MonoBehaviour
 
         currentHealth -= damage;
 
+        Debug.Log(transform.name + " now has " + currentHealth + " health");
+
         if (currentHealth <= 0)
         {
             // character is now dead
+            Debug.Log(transform.name + " has died");
+            Object.Destroy(gameObject);
         }
     }
 

@@ -22,4 +22,8 @@ public class team1Controller : UnitController
         // Finding closest target and choose target
         currentTarget = FindClosest(CombatManager.Instance.team2);
     }
+    private void OnDisable()
+    {
+        CombatManager.Instance.team1.Remove(this);
+    }
 }

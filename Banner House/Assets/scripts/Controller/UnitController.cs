@@ -16,33 +16,12 @@ public class UnitController : MonoBehaviour
 
     public CombatUnit unit;
 
-    void Start()
-    {
-        //attackRadius = unit.attackRadius;
-        //agent.stoppingDistance = attackRadius;
-
-        // Choosing this unit as agent
-        //agent = GetComponent<NavMeshAgent>();
-        /*
-        // Adding to CombatManager
-        CombatManager.Instance.addUnit(this);
-
-        // Finding closest target and choose target
-        currentTarget = CombatManager.Instance.getEnemy(this)[0].transform;
-        */
-    }
-
-    void Update()
-    {
-        //agent.SetDestination(currentTarget.position);
-    }
-
     // This function finds the closest enemy to this unit
     public Transform FindClosest(List<UnitController> enemy)
     {
         if (enemy == null || enemy.Count == 0)
         {
-            Debug.Log("No unit detected in enemy team");
+            //Debug.Log("No unit detected in enemy team");
             return null;
         }
 
@@ -75,6 +54,8 @@ public class UnitController : MonoBehaviour
         {
             //Debug.Log("Unit " + name + " is attacking " + currentTarget.name);
             //Attack(currentTarget);
+            CharacterStats targetStats = currentTarget.GetComponent<CharacterStats>();
+            targetStats.TakeDamage(stats.attack);
         }
         else
         {
@@ -98,15 +79,4 @@ public class UnitController : MonoBehaviour
         agent.stoppingDistance = stats.attackRadius;
 
     }
-
-    /*
-     * Shows attack radius of character
-     */
-    /*
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, stats.attackRadius);
-    }
-    */
 }

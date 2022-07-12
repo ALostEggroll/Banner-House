@@ -16,11 +16,14 @@ public class team2Controller : UnitController
     {
         UnitLogic();
     }
-
     public override void SetCurrentTarget()
     {
         base.SetCurrentTarget();
         // Finding closest target and choose target
         currentTarget = FindClosest(CombatManager.Instance.team1);
+    }
+    private void OnDisable()
+    {
+        CombatManager.Instance.team2.Remove(this);
     }
 }
