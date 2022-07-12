@@ -21,6 +21,7 @@ public class CharacterStats : MonoBehaviour
     private void Awake()
     {
         maxHealth = CombatUnit.maxHealth;
+        currentHealth = maxHealth;
         attack = CombatUnit.attack;
         attackRate = CombatUnit.attackRate;
         attackRadius = CombatUnit.attackRadius;

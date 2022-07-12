@@ -469,6 +469,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTarget: {fileID: 0}
   agent: {fileID: 0}
+  attackRadius: 0
+  unit: {fileID: 11400000, guid: 4b7d4ae1783da0246920a99d34ee4f59, type: 2}
 --- !u!114 &1252802986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -772,6 +774,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTarget: {fileID: 0}
   agent: {fileID: 0}
+  attackRadius: 0
+  unit: {fileID: 11400000, guid: 4b7d4ae1783da0246920a99d34ee4f59, type: 2}
 --- !u!114 &1935664104
 MonoBehaviour:
   m_ObjectHideFlags: 0

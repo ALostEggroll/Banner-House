@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +13,9 @@ public class team1Controller : CharacterCombatController
 
         // Adding to CombatManager
         CombatManager.Instance.team1.Add(this);
+
+        attackRadius = unit.attackRadius;
+        agent.stoppingDistance = attackRadius;
     }
 
     private void Update()

@@ -19,9 +19,10 @@ public class CharacterCombatController : MonoBehaviour
     void Start()
     {
         attackRadius = unit.attackRadius;
+        agent.stoppingDistance = attackRadius;
+
         // Choosing this unit as agent
         //agent = GetComponent<NavMeshAgent>();
-
         /*
         // Adding to CombatManager
         CombatManager.Instance.addUnit(this);

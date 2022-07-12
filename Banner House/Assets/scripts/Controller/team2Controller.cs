@@ -13,6 +13,9 @@ public class team2Controller : CharacterCombatController
 
         // Adding to CombatManager
         CombatManager.Instance.team2.Add(this);
+
+        attackRadius = unit.attackRadius;
+        agent.stoppingDistance = attackRadius;
     }
     private void Update()
     {
@@ -25,5 +28,13 @@ public class team2Controller : CharacterCombatController
         {
             agent.SetDestination(currentTarget.position);
         }
+    }
+    /*
+     * Shows attack radius of character
+     */
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRadius);
     }
 }
