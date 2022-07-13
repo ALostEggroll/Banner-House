@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- * This class manages every character's health
+ * This class manages every character's stats
  */
-public class CharacterManager : MonoBehaviour
+public class CharacterStats : MonoBehaviour
 {
     public CombatUnit CombatUnit;
 
@@ -14,14 +14,17 @@ public class CharacterManager : MonoBehaviour
 
     public int attack;
     public float attackRate;
+    public float attackRadius;
     public int defense;
 
     // Initializes the character with stats saved in CombatUnit
     private void Awake()
     {
         maxHealth = CombatUnit.maxHealth;
+        currentHealth = maxHealth;
         attack = CombatUnit.attack;
         attackRate = CombatUnit.attackRate;
+        attackRadius = CombatUnit.attackRadius;
         defense = CombatUnit.defense;
     }
 
@@ -35,9 +38,13 @@ public class CharacterManager : MonoBehaviour
 
         currentHealth -= damage;
 
+        Debug.Log(transform.name + " now has " + currentHealth + " health");
+
         if (currentHealth <= 0)
         {
             // character is now dead
+            Debug.Log(transform.name + " has died");
+            Object.Destroy(gameObject);
         }
     }
 

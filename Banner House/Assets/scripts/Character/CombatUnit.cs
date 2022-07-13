@@ -25,6 +25,7 @@ public class CombatUnit : ScriptableObject
     public int maxHealth;       // The max health of the unit
     public int attack;          // The attack power of the unit
     public float attackRate;    // The frequency of attack
+    public float attackRadius;  // The max distance a unit can start attacking
     public int defense;         // The defense of the unit
 }
 public enum classType { Warrior, Rouge, Mage, Support }
