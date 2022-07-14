@@ -16,4 +16,14 @@ public class StartButton : MonoBehaviour
     {
         
     }
+
+    public void Clicked()
+    {
+        //Debug.Log("Button Clicked!");
+        FadeToBlack.FadeIn(()=> {
+            Debug.Log("Screen is Black!");
+            FadeToBlack.FadeOut(); 
+        });  //calling the FadeToBlack's method FadeIn
+        
+    }
 }
