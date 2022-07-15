@@ -75,7 +75,7 @@ public class UnitController : MonoBehaviour
         // Getting stats of this unit
         stats = GetComponent<CharacterStats>();
 
-        stats.attackRadius = unit.attackRadius;
+        //stats.attackRadius = unit.attackRadius;
         agent.stoppingDistance = stats.attackRadius;
 
     }

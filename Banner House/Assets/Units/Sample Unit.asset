@@ -9,16 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4580417df7446b4896138f4984ccdf7, type: 3}
+  m_Script: {fileID: 11500000, guid: 36f71c7263f9fc044aabeb2f2a60244d, type: 3}
   m_Name: Sample Unit
   m_EditorClassIdentifier: 
-  name: Sample Name
-  description: This is an example of a character in Banner House
+  name: Sample Unit
+  description: This unit represents a unit in the game
   classType: 0
   model: {fileID: 0}
   artwork: {fileID: 21300000, guid: f975051286963d748875bfb857aa2805, type: 3}
   maxHealth: 100
-  attack: 10
-  attackRate: 0.5
-  attackRadius: 7
+  attack: 2
+  attackRate: 1
+  attackRadius: 5
   defense: 1
