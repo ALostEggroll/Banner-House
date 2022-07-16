@@ -16,6 +16,54 @@ public class UnitController : MonoBehaviour
 
     public CombatUnit unit;
 
+    public Team team;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        //FirstLoad();
+        // Choosing this unit as agent
+        agent = GetComponent<NavMeshAgent>();
+        // Getting stats of this unit
+        stats = GetComponent<CharacterStats>();
+        unit = stats.CombatUnit;
+
+        stats.attackRadius = unit.attackRadius;
+        agent.stoppingDistance = stats.attackRadius;
+
+        // Adding to CombatManager
+        CombatManager.Instance.AddUnit(this);
+    }
+    private void Update()
+    {
+        //UnitLogic();
+        if (currentTarget == null)
+        {
+            SetCurrentTarget();
+        }
+        else if (CurrentDistance() <= agent.stoppingDistance)
+        {
+            //Debug.Log("Unit " + name + " is attacking " + currentTarget.name);
+            //Attack(currentTarget);
+            CharacterStats targetStats = currentTarget.GetComponent<CharacterStats>();
+            targetStats.TakeDamage(stats.attack);
+        }
+        else
+        {
+            //Debug.Log("Unit " + name + " is moving to " + currentTarget.name);
+            agent.SetDestination(currentTarget.position);
+        }
+    }
+    public void SetCurrentTarget()
+    {
+        // Finding closest target and choose target
+        currentTarget = FindClosest(CombatManager.Instance.GetTeam(this));
+    }
+    private void OnDisable()
+    {
+        CombatManager.Instance.RemoveUnit(this);
+    }
+
     // This function finds the closest enemy to this unit
     public Transform FindClosest(List<UnitController> enemy)
     {
@@ -43,41 +91,8 @@ public class UnitController : MonoBehaviour
     {
         return Vector3.Distance(transform.position, currentTarget.transform.position);
     }
-
-    public void UnitLogic()
-    {
-        if (currentTarget == null)
-        {
-            SetCurrentTarget();
-        }
-        else if (CurrentDistance() <= agent.stoppingDistance)
-        {
-            //Debug.Log("Unit " + name + " is attacking " + currentTarget.name);
-            //Attack(currentTarget);
-            CharacterStats targetStats = currentTarget.GetComponent<CharacterStats>();
-            targetStats.TakeDamage(stats.attack);
-        }
-        else
-        {
-            //Debug.Log("Unit " + name + " is moving to " + currentTarget.name);
-            agent.SetDestination(currentTarget.position);
-        }
-    }
-
-    public virtual void SetCurrentTarget()
-    {
-        
-    }
-    public void FirstLoad()
-    {
-        // Choosing this unit as agent
-        agent = GetComponent<NavMeshAgent>();
-        // Getting stats of this unit
-        stats = GetComponent<CharacterStats>();
-        unit = stats.CombatUnit;
-
-        stats.attackRadius = unit.attackRadius;
-        agent.stoppingDistance = stats.attackRadius;
-
-    }
 }
+public enum Team {
+        team1,
+        team2,
+    }
