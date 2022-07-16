@@ -20,5 +20,5 @@ MonoBehaviour:
   maxHealth: 100
   attack: 2
   attackRate: 1
-  attackRadius: 5
+  attackRadius: 10
   defense: 1

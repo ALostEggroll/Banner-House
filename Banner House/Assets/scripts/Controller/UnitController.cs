@@ -74,8 +74,9 @@ public class UnitController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         // Getting stats of this unit
         stats = GetComponent<CharacterStats>();
+        unit = stats.CombatUnit;
 
-        //stats.attackRadius = unit.attackRadius;
+        stats.attackRadius = unit.attackRadius;
         agent.stoppingDistance = stats.attackRadius;
 
     }
