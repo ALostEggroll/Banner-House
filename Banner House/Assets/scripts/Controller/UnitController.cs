@@ -18,6 +18,8 @@ public class UnitController : MonoBehaviour
 
     public Team team;
 
+    private float attackCooldown;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,17 +38,28 @@ public class UnitController : MonoBehaviour
     }
     private void Update()
     {
+        attackCooldown -= Time.deltaTime;
         //UnitLogic();
         if (currentTarget == null)
         {
             SetCurrentTarget();
         }
-        else if (CurrentDistance() <= agent.stoppingDistance)
+        else if (CurrentDistance() <= agent.stoppingDistance && attackCooldown <= 0f)
         {
             //Debug.Log("Unit " + name + " is attacking " + currentTarget.name);
             //Attack(currentTarget);
             CharacterStats targetStats = currentTarget.GetComponent<CharacterStats>();
-            targetStats.TakeDamage(stats.attack);
+            // Crit damage calculation
+            if (Random.Range(0, 100) < 33)
+            {
+                Debug.Log("Crit!");
+                targetStats.TakeDamage(stats.attack * 2);
+            }
+            else
+            {
+                targetStats.TakeDamage(stats.attack);
+            }
+            attackCooldown = 1f / stats.attackRate; // Regulates attack speed
         }
         else
         {
