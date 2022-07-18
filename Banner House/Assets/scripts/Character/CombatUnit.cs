@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- * This is the class CombatUnit. It holds basic values used by all units
- * To be used by both allies and enemies
- * 
- * Class made by Dexter Estrada (dexter.estrada99@gmail.com) 
+ * This class holds basic values used by all units
+ * To be used by both allies and enemies.
 */
 [CreateAssetMenu(fileName = "New Unit", menuName = "Units")]
 public class CombatUnit : ScriptableObject

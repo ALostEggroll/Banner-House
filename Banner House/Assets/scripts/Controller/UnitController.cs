@@ -4,17 +4,18 @@ using UnityEngine;
 using UnityEngine.AI;
 
 /*
- * This class controls unit behavior in combat
+ * This class controls unit behavior in combat.
+ * It should be attached to every gameobject that can fight
  */
 [RequireComponent(typeof(NavMeshAgent))]
 public class UnitController : MonoBehaviour
 {
-    public Transform currentTarget;    // Current targeted unit
-    public NavMeshAgent agent;         // This unit
-    public CharacterStats stats;       // This unit's stats
-    //[SerializeField] public team team { get; set; }
+    private Transform currentTarget;    // Current targeted unit
+    private NavMeshAgent agent;         // This unit
+    private CharacterStats stats;       // This unit's stats
 
-    public CombatUnit unit;
+    [SerializeField]
+    private CombatUnit unit;
 
     public Team team;
 
@@ -23,7 +24,6 @@ public class UnitController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //FirstLoad();
         // Choosing this unit as agent
         agent = GetComponent<NavMeshAgent>();
         // Getting stats of this unit
@@ -39,7 +39,6 @@ public class UnitController : MonoBehaviour
     private void Update()
     {
         attackCooldown -= Time.deltaTime;
-        //UnitLogic();
         if (currentTarget == null)
         {
             SetCurrentTarget();
@@ -72,7 +71,7 @@ public class UnitController : MonoBehaviour
         // Finding closest target and choose target
         currentTarget = FindClosest(CombatManager.Instance.GetTeam(this));
     }
-    private void OnDisable()
+    private void OnDestroy()
     {
         CombatManager.Instance.RemoveUnit(this);
     }
@@ -103,6 +102,11 @@ public class UnitController : MonoBehaviour
     public float CurrentDistance()
     {
         return Vector3.Distance(transform.position, currentTarget.transform.position);
+    }
+
+    public void SetTeam(Team t)
+    {
+        team = t;
     }
 }
 public enum Team {
