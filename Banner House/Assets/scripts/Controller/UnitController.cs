@@ -70,7 +70,7 @@ public abstract class UnitController : MonoBehaviour
         // Attacks if unit is close enough to the enemy and attack not in cooldown
         else if (CurrentDistance() <= agent.stoppingDistance && attackCooldown <= 0f)
         {
-            //Debug.Log("Unit " + name + " is attacking " + currentTarget.name);
+            Debug.Log("Unit " + name + " is attacking " + currentTarget.name);
             // Gets reference to target's stats
             //CharacterStats targetStats = currentTarget.GetComponent<CharacterStats>();
             UnitController targetUnit = currentTarget.GetComponent<UnitController>();

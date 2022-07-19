@@ -12,6 +12,7 @@ public class WarriorController : UnitController
         base.Update();
         if(Input.GetKeyDown(KeyCode.Q))
         {
+            //Debug.Log("In Warrior Controller Update");
             StatModifierManager.ApplyStrength(this, 5f, 5);
         }
     }
