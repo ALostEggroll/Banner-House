@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- * This is the class CombatUnit. It holds basic values used by all units
- * To be used by both allies and enemies
- * 
- * Class made by Dexter Estrada (dexter.estrada99@gmail.com) 
+ *  This class holds basic values used by all units
+ *  To be used by both allies and enemies.
+ *  Used to easily reference a character
 */
 [CreateAssetMenu(fileName = "New Unit", menuName = "Units")]
 public class CombatUnit : ScriptableObject
@@ -28,4 +27,5 @@ public class CombatUnit : ScriptableObject
     public float attackRadius;  // The max distance a unit can start attacking
     public int defense;         // The defense of the unit
 }
+// The class of this unit. Placeholder for now
 public enum classType { Warrior, Rouge, Mage, Support }

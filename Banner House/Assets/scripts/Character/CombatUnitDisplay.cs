@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 /*
     This is a sample class that can display the values of the different units in the game
-
-    This class was made by Dexter Estrada (dexter.estrada99@gmail.com)
 */
 
 public class CombatUnitDisplay : MonoBehaviour
