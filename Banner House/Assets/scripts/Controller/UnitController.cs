@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+using UnityEngine.AI;   // For NavMesh
 
 /*
- * This class controls unit behavior in combat.
- * It should be attached to every gameobject that can fight
+ *  This class controls unit behavior in combat.
+ *  It should be attached to every gameobject that can fight
  */
 [RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(CharacterStats))]
 public class UnitController : MonoBehaviour
 {
     private Transform currentTarget;    // Current targeted unit
@@ -20,6 +21,14 @@ public class UnitController : MonoBehaviour
     public Team team;
 
     private float attackCooldown;
+    
+    /*
+     *  Setting this unit's team
+     */
+    public void SetTeam(Team t)
+    {
+        team = t;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -36,18 +45,27 @@ public class UnitController : MonoBehaviour
         // Adding to CombatManager
         CombatManager.Instance.AddUnit(this);
     }
+
+    /*
+     *  The combat logic for the unit
+     */
     private void Update()
     {
+        // Regulates attack rate
         attackCooldown -= Time.deltaTime;
+        
+        // Searching for an enemy
         if (currentTarget == null)
         {
             SetCurrentTarget();
         }
+        // Attacks if unit is close enough to the enemy and attack not in cooldown
         else if (CurrentDistance() <= agent.stoppingDistance && attackCooldown <= 0f)
         {
             //Debug.Log("Unit " + name + " is attacking " + currentTarget.name);
-            //Attack(currentTarget);
+            // Gets reference to target's stats
             CharacterStats targetStats = currentTarget.GetComponent<CharacterStats>();
+
             // Crit damage calculation
             if (Random.Range(0, 100) < 33)
             {
@@ -56,28 +74,38 @@ public class UnitController : MonoBehaviour
             }
             else
             {
+                // Base attack damage
                 targetStats.TakeDamage(stats.attack);
             }
-            attackCooldown = 1f / stats.attackRate; // Regulates attack speed
+            attackCooldown = 1f / stats.attackRate; // Resets attack cooldown
         }
+        // Travels to enemy if not in attack range
         else
         {
             //Debug.Log("Unit " + name + " is moving to " + currentTarget.name);
             agent.SetDestination(currentTarget.position);
         }
     }
-    public void SetCurrentTarget()
-    {
-        // Finding closest target and choose target
-        currentTarget = FindClosest(CombatManager.Instance.GetTeam(this));
-    }
+
+    /*
+     *  Removing this unit from the list
+     */
     private void OnDestroy()
     {
         CombatManager.Instance.RemoveUnit(this);
     }
 
+    /*
+     *  Sets target to closest enemy
+     */
+    private void SetCurrentTarget()
+    {
+        currentTarget = FindClosest(CombatManager.Instance.GetTeam(this));
+    }
+
+
     // This function finds the closest enemy to this unit
-    public Transform FindClosest(List<UnitController> enemy)
+    private Transform FindClosest(List<UnitController> enemy)
     {
         if (enemy == null || enemy.Count == 0)
         {
@@ -99,16 +127,15 @@ public class UnitController : MonoBehaviour
         return closestUnit;
     }
 
-    public float CurrentDistance()
+    /*
+     * Calculates distance from enemy
+     */
+    private float CurrentDistance()
     {
         return Vector3.Distance(transform.position, currentTarget.transform.position);
     }
-
-    public void SetTeam(Team t)
-    {
-        team = t;
-    }
 }
+// Current defined teams
 public enum Team {
         team1,
         team2,
