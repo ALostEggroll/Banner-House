@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 9217483526957038137}
   - component: {fileID: 9217483526957038138}
   - component: {fileID: 9217483526957038132}
-  - component: {fileID: 5960086262127503375}
   m_Layer: 0
   m_Name: Ally
   m_TagString: Untagged
@@ -153,26 +152,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8b90b1c1f2ae224aa7cec9c9bcc435c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CombatUnit: {fileID: 11400000, guid: 4b7d4ae1783da0246920a99d34ee4f59, type: 2}
+  currentHealth: 0
   maxHealth: 0
   attack: 0
   attackRate: 0
   attackRadius: 0
   defense: 0
---- !u!114 &5960086262127503375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9217483526957038141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3fa3cacd8b31bf47a71537f263f9a5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentTarget: {fileID: 0}
-  agent: {fileID: 0}
-  stats: {fileID: 0}
-  unit: {fileID: 0}
-  team: 0
+  attackSpeedModifier: 0

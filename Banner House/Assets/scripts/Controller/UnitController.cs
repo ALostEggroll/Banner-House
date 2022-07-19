@@ -8,15 +8,14 @@ using UnityEngine.AI;   // For NavMesh
  *  It should be attached to every gameobject that can fight
  */
 [RequireComponent(typeof(NavMeshAgent))]
-[RequireComponent(typeof(CharacterStats))]
-public class UnitController : MonoBehaviour
+public abstract class UnitController : MonoBehaviour
 {
     private Transform currentTarget;    // Current targeted unit
     private NavMeshAgent agent;         // This unit
-    private CharacterStats stats;       // This unit's stats
+    [HideInInspector] public CharacterStats stats;       // This unit's stats
 
-    [SerializeField]
-    private CombatUnit unit;
+    //[SerializeField]
+    //private CombatUnit unit;
 
     public Team team;
 
@@ -31,28 +30,37 @@ public class UnitController : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         // Choosing this unit as agent
         agent = GetComponent<NavMeshAgent>();
         // Getting stats of this unit
         stats = GetComponent<CharacterStats>();
-        unit = stats.CombatUnit;
+        //unit = stats.CombatUnit;
 
-        stats.attackRadius = unit.attackRadius;
-        agent.stoppingDistance = stats.attackRadius;
+        //stats.attackRadius = unit.attackRadius;
+        //agent.stoppingDistance = stats.attackRadius;
 
         // Adding to CombatManager
         CombatManager.Instance.AddUnit(this);
+        InitializeNavMeshAgent();
+    }
+
+    /*
+     *  Called at start to initialize NavMesh agent variables
+     */
+    public virtual void InitializeNavMeshAgent()
+    {
+        agent.stoppingDistance = stats.attackRadius;
     }
 
     /*
      *  The combat logic for the unit
      */
-    private void Update()
+    public virtual void Update()
     {
         // Regulates attack rate
-        attackCooldown -= Time.deltaTime;
+        attackCooldown -= Time.deltaTime * stats.attackSpeedModifier;
         
         // Searching for an enemy
         if (currentTarget == null)
@@ -64,18 +72,22 @@ public class UnitController : MonoBehaviour
         {
             //Debug.Log("Unit " + name + " is attacking " + currentTarget.name);
             // Gets reference to target's stats
-            CharacterStats targetStats = currentTarget.GetComponent<CharacterStats>();
+            //CharacterStats targetStats = currentTarget.GetComponent<CharacterStats>();
+            UnitController targetUnit = currentTarget.GetComponent<UnitController>();
 
             // Crit damage calculation
             if (Random.Range(0, 100) < 33)
             {
                 Debug.Log("Crit!");
-                targetStats.TakeDamage(stats.attack * 2);
+                //targetStats.TakeDamage(stats.attack * 2);
+                //targetUnit.TakeDamage(stats.attack * 2);
+                this.AttackTarget(targetUnit, true);
             }
             else
             {
                 // Base attack damage
-                targetStats.TakeDamage(stats.attack);
+                //targetStats.TakeDamage(stats.attack);
+                this.AttackTarget(targetUnit, false);
             }
             attackCooldown = 1f / stats.attackRate; // Resets attack cooldown
         }
@@ -85,6 +97,22 @@ public class UnitController : MonoBehaviour
             //Debug.Log("Unit " + name + " is moving to " + currentTarget.name);
             agent.SetDestination(currentTarget.position);
         }
+    }
+
+    /*
+     *  Handles how this unit attacks others with or without crit
+     */
+    public virtual void AttackTarget(UnitController target, bool isCrit) 
+    {
+        target.TakeDamage(isCrit? stats.attack * 2 : stats.attack);
+    }
+
+    /*
+     *  Handles how this unit recieves damage
+     */
+    public virtual void TakeDamage(int damage)
+    {
+        stats.TakeDamage(damage);
     }
 
     /*
@@ -98,7 +126,7 @@ public class UnitController : MonoBehaviour
     /*
      *  Sets target to closest enemy
      */
-    private void SetCurrentTarget()
+    public virtual void SetCurrentTarget()
     {
         currentTarget = FindClosest(CombatManager.Instance.GetTeam(this));
     }
@@ -130,7 +158,7 @@ public class UnitController : MonoBehaviour
     /*
      * Calculates distance from enemy
      */
-    private float CurrentDistance()
+    public float CurrentDistance()
     {
         return Vector3.Distance(transform.position, currentTarget.transform.position);
     }

@@ -31,6 +31,7 @@ public class CombatManager : MonoBehaviour
     private List<UnitController> team1 = new List<UnitController>();
     private List<UnitController> team2 = new List<UnitController>();
 
+    
 /*
  *  Adds a unit to this class
  */
