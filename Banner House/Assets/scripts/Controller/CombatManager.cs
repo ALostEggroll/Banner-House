@@ -41,17 +41,25 @@ public class CombatManager : MonoBehaviour
         {
             Debug.Log("Combat Started");
             combatStarted = true;
+            Time.timeScale = 1f;
         }
         if (combatStarted && team1.Count == 0)
         {
             Debug.Log("Team 1 is defeated");
             combatStarted = false;
+            Time.timeScale = 0f;
         }
         else if (combatStarted && team2.Count == 0)
         {
             Debug.Log("Team 2 is defeated");
             combatStarted = false;
+            Time.timeScale = 0f;
         }
+    }
+
+    public void Start()
+    {
+        Time.timeScale = 0f;
     }
 
     
