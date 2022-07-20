@@ -28,8 +28,31 @@ public class CombatManager : MonoBehaviour
     }
     #endregion
 
+    // The Player's team
     private List<UnitController> team1 = new List<UnitController>();
+    // The Enemy team
     private List<UnitController> team2 = new List<UnitController>();
+
+    public bool combatStarted;
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Combat Started");
+            combatStarted = true;
+        }
+        if (combatStarted && team1.Count == 0)
+        {
+            Debug.Log("Team 1 is defeated");
+            combatStarted = false;
+        }
+        else if (combatStarted && team2.Count == 0)
+        {
+            Debug.Log("Team 2 is defeated");
+            combatStarted = false;
+        }
+    }
 
     
 /*

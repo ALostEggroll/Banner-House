@@ -8,6 +8,7 @@ using UnityEngine.AI;   // For NavMesh
  *  It should be attached to every gameobject that can fight
  */
 [RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(CharacterStats))]
 public abstract class UnitController : MonoBehaviour
 {
     private Transform currentTarget;    // Current targeted unit
@@ -59,43 +60,46 @@ public abstract class UnitController : MonoBehaviour
      */
     public virtual void Update()
     {
-        // Regulates attack rate
-        attackCooldown -= Time.deltaTime * stats.attackSpeedModifier;
-        
-        // Searching for an enemy
-        if (currentTarget == null)
-        {
-            SetCurrentTarget();
-        }
-        // Attacks if unit is close enough to the enemy and attack not in cooldown
-        else if (CurrentDistance() <= agent.stoppingDistance && attackCooldown <= 0f)
-        {
-            Debug.Log("Unit " + name + " is attacking " + currentTarget.name);
-            // Gets reference to target's stats
-            //CharacterStats targetStats = currentTarget.GetComponent<CharacterStats>();
-            UnitController targetUnit = currentTarget.GetComponent<UnitController>();
-
-            // Crit damage calculation
-            if (Random.Range(0, 100) < 33)
+        if (CombatManager.Instance.combatStarted)
             {
-                Debug.Log("Crit!");
-                //targetStats.TakeDamage(stats.attack * 2);
-                //targetUnit.TakeDamage(stats.attack * 2);
-                this.AttackTarget(targetUnit, true);
+            // Regulates attack rate
+            attackCooldown -= Time.deltaTime * stats.attackSpeedModifier;
+            
+            // Searching for an enemy
+            if (currentTarget == null)
+            {
+                SetCurrentTarget();
             }
+            // Attacks if unit is close enough to the enemy and attack not in cooldown
+            else if (CurrentDistance() <= agent.stoppingDistance && attackCooldown <= 0f)
+            {
+                Debug.Log("Unit " + name + " is attacking " + currentTarget.name);
+                // Gets reference to target's stats
+                //CharacterStats targetStats = currentTarget.GetComponent<CharacterStats>();
+                UnitController targetUnit = currentTarget.GetComponent<UnitController>();
+
+                // Crit damage calculation
+                if (Random.Range(0, 100) < 33)
+                {
+                    Debug.Log("Crit!");
+                    //targetStats.TakeDamage(stats.attack * 2);
+                    //targetUnit.TakeDamage(stats.attack * 2);
+                    this.AttackTarget(targetUnit, true);
+                }
+                else
+                {
+                    // Base attack damage
+                    //targetStats.TakeDamage(stats.attack);
+                    this.AttackTarget(targetUnit, false);
+                }
+                attackCooldown = 1f / stats.attackRate; // Resets attack cooldown
+            }
+            // Travels to enemy if not in attack range
             else
             {
-                // Base attack damage
-                //targetStats.TakeDamage(stats.attack);
-                this.AttackTarget(targetUnit, false);
+                //Debug.Log("Unit " + name + " is moving to " + currentTarget.name);
+                agent.SetDestination(currentTarget.position);
             }
-            attackCooldown = 1f / stats.attackRate; // Resets attack cooldown
-        }
-        // Travels to enemy if not in attack range
-        else
-        {
-            //Debug.Log("Unit " + name + " is moving to " + currentTarget.name);
-            agent.SetDestination(currentTarget.position);
         }
     }
 
