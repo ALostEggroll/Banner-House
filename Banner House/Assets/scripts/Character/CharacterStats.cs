@@ -3,20 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- * This class manages every character's stats
+ *  This class manages every character's stats
+ *  Should be attached to a gameobject
  */
 public class CharacterStats : MonoBehaviour
 {
-    public CombatUnit CombatUnit;
+    //public CombatUnit CombatUnit;
 
-    public int currentHealth { get; private set; }
+    public int currentHealth;    // Health tracker
     public int maxHealth;
-
     public int attack;
     public float attackRate;
     public float attackRadius;
     public int defense;
+    public float attackSpeedModifier;
 
+    /*
     // Initializes the character with stats saved in CombatUnit
     private void Awake()
     {
@@ -27,13 +29,17 @@ public class CharacterStats : MonoBehaviour
         attackRadius = CombatUnit.attackRadius;
         defense = CombatUnit.defense;
     }
+    */
 
+/*
+ *  This method handles damage taken by this unit. Takes an int for damage taken
+ */
     public void TakeDamage(int damage)
     {
         damage -= defense;
         // Checking if attack did damage
         if (damage < 0)
-            damage = 0;
+            damage = 1;
         Debug.Log(transform.name + " took " + damage + " damage");
 
         currentHealth -= damage;
@@ -48,6 +54,9 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
+/*
+ *  This method handles healing for this unit. Takes an int for health received
+ */
     public void AddHealth(int heal)
     {
         currentHealth += heal;

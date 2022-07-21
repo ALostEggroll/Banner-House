@@ -1,23 +1,139 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+using UnityEngine.AI;   // For NavMesh
 
 /*
- * This class controls unit behavior in combat
+ *  This class controls unit behavior in combat.
+ *  It should be attached to every gameobject that can fight
  */
 [RequireComponent(typeof(NavMeshAgent))]
-public class UnitController : MonoBehaviour
+public abstract class UnitController : MonoBehaviour
 {
-    public Transform currentTarget;    // Current targeted unit
-    public NavMeshAgent agent;         // This unit
-    public CharacterStats stats;       // This unit's stats
-    //[SerializeField] public team team { get; set; }
+    private Transform currentTarget;    // Current targeted unit
+    private NavMeshAgent agent;         // This unit
+    [HideInInspector] public CharacterStats stats;       // This unit's stats
 
-    public CombatUnit unit;
+    //[SerializeField]
+    //private CombatUnit unit;
+
+    public Team team;
+
+    private float attackCooldown;
+    
+    /*
+     *  Setting this unit's team
+     */
+    public void SetTeam(Team t)
+    {
+        team = t;
+    }
+
+    // Start is called before the first frame update
+    public void Start()
+    {
+        // Choosing this unit as agent
+        agent = GetComponent<NavMeshAgent>();
+        // Getting stats of this unit
+        stats = GetComponent<CharacterStats>();
+        //unit = stats.CombatUnit;
+
+        //stats.attackRadius = unit.attackRadius;
+        //agent.stoppingDistance = stats.attackRadius;
+
+        // Adding to CombatManager
+        CombatManager.Instance.AddUnit(this);
+        InitializeNavMeshAgent();
+    }
+
+    /*
+     *  Called at start to initialize NavMesh agent variables
+     */
+    public virtual void InitializeNavMeshAgent()
+    {
+        agent.stoppingDistance = stats.attackRadius;
+    }
+
+    /*
+     *  The combat logic for the unit
+     */
+    public virtual void Update()
+    {
+        // Regulates attack rate
+        attackCooldown -= Time.deltaTime * stats.attackSpeedModifier;
+        
+        // Searching for an enemy
+        if (currentTarget == null)
+        {
+            SetCurrentTarget();
+        }
+        // Attacks if unit is close enough to the enemy and attack not in cooldown
+        else if (CurrentDistance() <= agent.stoppingDistance && attackCooldown <= 0f)
+        {
+            Debug.Log("Unit " + name + " is attacking " + currentTarget.name);
+            // Gets reference to target's stats
+            //CharacterStats targetStats = currentTarget.GetComponent<CharacterStats>();
+            UnitController targetUnit = currentTarget.GetComponent<UnitController>();
+
+            // Crit damage calculation
+            if (Random.Range(0, 100) < 33)
+            {
+                Debug.Log("Crit!");
+                //targetStats.TakeDamage(stats.attack * 2);
+                //targetUnit.TakeDamage(stats.attack * 2);
+                this.AttackTarget(targetUnit, true);
+            }
+            else
+            {
+                // Base attack damage
+                //targetStats.TakeDamage(stats.attack);
+                this.AttackTarget(targetUnit, false);
+            }
+            attackCooldown = 1f / stats.attackRate; // Resets attack cooldown
+        }
+        // Travels to enemy if not in attack range
+        else
+        {
+            //Debug.Log("Unit " + name + " is moving to " + currentTarget.name);
+            agent.SetDestination(currentTarget.position);
+        }
+    }
+
+    /*
+     *  Handles how this unit attacks others with or without crit
+     */
+    public virtual void AttackTarget(UnitController target, bool isCrit) 
+    {
+        target.TakeDamage(isCrit? stats.attack * 2 : stats.attack);
+    }
+
+    /*
+     *  Handles how this unit recieves damage
+     */
+    public virtual void TakeDamage(int damage)
+    {
+        stats.TakeDamage(damage);
+    }
+
+    /*
+     *  Removing this unit from the list
+     */
+    private void OnDestroy()
+    {
+        CombatManager.Instance.RemoveUnit(this);
+    }
+
+    /*
+     *  Sets target to closest enemy
+     */
+    public virtual void SetCurrentTarget()
+    {
+        currentTarget = FindClosest(CombatManager.Instance.GetTeam(this));
+    }
+
 
     // This function finds the closest enemy to this unit
-    public Transform FindClosest(List<UnitController> enemy)
+    private Transform FindClosest(List<UnitController> enemy)
     {
         if (enemy == null || enemy.Count == 0)
         {
@@ -39,44 +155,16 @@ public class UnitController : MonoBehaviour
         return closestUnit;
     }
 
+    /*
+     * Calculates distance from enemy
+     */
     public float CurrentDistance()
     {
         return Vector3.Distance(transform.position, currentTarget.transform.position);
     }
-
-    public void UnitLogic()
-    {
-        if (currentTarget == null)
-        {
-            SetCurrentTarget();
-        }
-        else if (CurrentDistance() <= agent.stoppingDistance)
-        {
-            //Debug.Log("Unit " + name + " is attacking " + currentTarget.name);
-            //Attack(currentTarget);
-            CharacterStats targetStats = currentTarget.GetComponent<CharacterStats>();
-            targetStats.TakeDamage(stats.attack);
-        }
-        else
-        {
-            //Debug.Log("Unit " + name + " is moving to " + currentTarget.name);
-            agent.SetDestination(currentTarget.position);
-        }
-    }
-
-    public virtual void SetCurrentTarget()
-    {
-        
-    }
-    public void FirstLoad()
-    {
-        // Choosing this unit as agent
-        agent = GetComponent<NavMeshAgent>();
-        // Getting stats of this unit
-        stats = GetComponent<CharacterStats>();
-
-        stats.attackRadius = unit.attackRadius;
-        agent.stoppingDistance = stats.attackRadius;
-
-    }
 }
+// Current defined teams
+public enum Team {
+        team1,
+        team2,
+    }
