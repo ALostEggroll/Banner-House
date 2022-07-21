@@ -10,11 +10,11 @@ public class NavigationButtons : MonoBehaviour
     {
         //Debug.Log("Button Clicked!");
         FadeToBlack.FadeIn(()=> {
-            Debug.Log("Screen is Black!");
+            //Debug.Log("Screen is Black!");
+            Debug.Log("From " + currentScreen + " To " + screenToActivate);
             currentScreen.SetActive(false);
             screenToActivate.SetActive(true);
             currentScreen = screenToActivate;
-            Debug.Log(currentScreen);
             FadeToBlack.FadeOut(); 
         });  //calling the FadeToBlack's method FadeIn
     }
