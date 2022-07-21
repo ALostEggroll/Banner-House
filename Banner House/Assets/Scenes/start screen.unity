@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.6395039, g: 0.61081505, b: 0.6371032, a: 1}
+  m_IndirectSpecularColor: {r: 0.63842374, g: 0.610983, b: 0.63726455, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -715,7 +715,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3188264893528243669, guid: 0adb9cd98b688e348868daef4090a7ca, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0adb9cd98b688e348868daef4090a7ca, type: 3}
@@ -911,6 +911,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HomeScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 2993503320050971447, guid: a2994b575ede7f64cb4f1338bffa3a27, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2993503320580583115, guid: a2994b575ede7f64cb4f1338bffa3a27, type: 3}
       propertyPath: m_Transition
       value: 2
@@ -926,18 +930,18 @@ PrefabInstance:
     - target: {fileID: 2993503320580583115, guid: a2994b575ede7f64cb4f1338bffa3a27, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 11500000, guid: b4af3b55ff0d10645affb2ebe2f967d5, type: 3}
+      objectReference: {fileID: 1410422680}
     - target: {fileID: 2993503320580583115, guid: a2994b575ede7f64cb4f1338bffa3a27, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: Clicked
       objectReference: {fileID: 0}
     - target: {fileID: 2993503320580583115, guid: a2994b575ede7f64cb4f1338bffa3a27, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: 
+      value: NavigationButtons, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2993503320580583115, guid: a2994b575ede7f64cb4f1338bffa3a27, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: 
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2994b575ede7f64cb4f1338bffa3a27, type: 3}
