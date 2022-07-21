@@ -8,6 +8,7 @@ using UnityEngine.AI;   // For NavMesh
  *  It should be attached to every gameobject that can fight
  */
 [RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(CharacterStats))]
 public abstract class UnitController : MonoBehaviour
 {
     private Transform currentTarget;    // Current targeted unit

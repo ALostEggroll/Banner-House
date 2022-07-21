@@ -28,4 +28,4 @@ public class CombatUnit : ScriptableObject
     public int defense;         // The defense of the unit
 }
 // The class of this unit. Placeholder for now
-public enum classType { Warrior, Rouge, Mage, Support }
+public enum classType { Warrior, Assassin, Enemy, Bard, Buffer, Rouge, Mage, Support }
