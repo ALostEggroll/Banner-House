@@ -695,10 +695,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 787862799, guid: 4e2bdc2f312c1b04a8521ae56689e7cd, type: 3}
-      propertyPath: nextScreen
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2355578104248970030, guid: 4e2bdc2f312c1b04a8521ae56689e7cd, type: 3}
       propertyPath: m_Name
       value: ShopScreen
