@@ -220,22 +220,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34a197bfe8451624580989d54c3dc190, type: 3}
---- !u!114 &118344911 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2355578103718082261, guid: 4e2bdc2f312c1b04a8521ae56689e7cd, type: 3}
-  m_PrefabInstance: {fileID: 803706097}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &301646332 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3188264893528243669, guid: 0adb9cd98b688e348868daef4090a7ca, type: 3}
-  m_PrefabInstance: {fileID: 596395463}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &304639572
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,17 +307,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 049e256961bcb5f41af57b5cca8566e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &422343784 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1092525060, guid: 6ccfa4337a8e62d448f9ffd369d8ad76, type: 3}
-  m_PrefabInstance: {fileID: 2988070908442021004}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec74f1b1096d3864f9dbe3ae674267b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &433669984
@@ -713,10 +686,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuestScreen
       objectReference: {fileID: 0}
-    - target: {fileID: 3188264893528243669, guid: 0adb9cd98b688e348868daef4090a7ca, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0adb9cd98b688e348868daef4090a7ca, type: 3}
 --- !u!1001 &803706097
@@ -726,6 +695,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 787862799, guid: 4e2bdc2f312c1b04a8521ae56689e7cd, type: 3}
+      propertyPath: nextScreen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2355578104248970030, guid: 4e2bdc2f312c1b04a8521ae56689e7cd, type: 3}
       propertyPath: m_Name
       value: ShopScreen
@@ -911,58 +884,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: HomeScreen
       objectReference: {fileID: 0}
-    - target: {fileID: 2993503320050971447, guid: a2994b575ede7f64cb4f1338bffa3a27, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2993503320580583115, guid: a2994b575ede7f64cb4f1338bffa3a27, type: 3}
-      propertyPath: m_Transition
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2993503320580583115, guid: a2994b575ede7f64cb4f1338bffa3a27, type: 3}
-      propertyPath: m_TargetGraphic
-      value: 
-      objectReference: {fileID: 118344911}
-    - target: {fileID: 2993503320580583115, guid: a2994b575ede7f64cb4f1338bffa3a27, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2993503320580583115, guid: a2994b575ede7f64cb4f1338bffa3a27, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1410422680}
-    - target: {fileID: 2993503320580583115, guid: a2994b575ede7f64cb4f1338bffa3a27, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Clicked
-      objectReference: {fileID: 0}
-    - target: {fileID: 2993503320580583115, guid: a2994b575ede7f64cb4f1338bffa3a27, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: NavigationButtons, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2993503320580583115, guid: a2994b575ede7f64cb4f1338bffa3a27, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2994b575ede7f64cb4f1338bffa3a27, type: 3}
---- !u!1 &1410422675 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2993503320580583113, guid: a2994b575ede7f64cb4f1338bffa3a27, type: 3}
-  m_PrefabInstance: {fileID: 1251392920}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1410422680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1410422675}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec74f1b1096d3864f9dbe3ae674267b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  screenToActivate: {fileID: 301646332}
 --- !u!1 &1417308048
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,11 +1044,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f012cdb2da55e3c44b50f9185467f24d, type: 3}
---- !u!1 &1900426724 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2993503320050971447, guid: a2994b575ede7f64cb4f1338bffa3a27, type: 3}
-  m_PrefabInstance: {fileID: 1251392920}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2988070908442021004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1133,21 +1051,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1092525060, guid: 6ccfa4337a8e62d448f9ffd369d8ad76, type: 3}
-      propertyPath: screenToActivate
-      value: 
-      objectReference: {fileID: 1900426724}
     - target: {fileID: 2613352527402264224, guid: 6ccfa4337a8e62d448f9ffd369d8ad76, type: 3}
       propertyPath: m_Name
       value: StartScreen
-      objectReference: {fileID: 0}
-    - target: {fileID: 2988070907349766285, guid: 6ccfa4337a8e62d448f9ffd369d8ad76, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 422343784}
-    - target: {fileID: 2988070907349766285, guid: 6ccfa4337a8e62d448f9ffd369d8ad76, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Clicked
       objectReference: {fileID: 0}
     - target: {fileID: 4228332214417535499, guid: 6ccfa4337a8e62d448f9ffd369d8ad76, type: 3}
       propertyPath: m_RootOrder
