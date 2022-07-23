@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3713808786625678076
 RectTransform:
   m_ObjectHideFlags: 0
@@ -304,7 +304,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &720959454346334505
 RectTransform:
   m_ObjectHideFlags: 0
@@ -338,6 +338,7 @@ GameObject:
   - component: {fileID: 3713808787567828089}
   - component: {fileID: 3713808787567828088}
   - component: {fileID: 3713808787567828091}
+  - component: {fileID: 99744225}
   m_Layer: 5
   m_Name: Quest
   m_TagString: Untagged
@@ -446,19 +447,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3713808787567828088}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ButtonScenes, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: quest
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &99744225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3713808787567828093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec74f1b1096d3864f9dbe3ae674267b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScreen: 5
 --- !u!1 &3713808787890179969
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,6 +631,10 @@ PrefabInstance:
     - target: {fileID: 8088628949513455059, guid: 608a047a76674e8429ce892e44f49397, type: 3}
       propertyPath: m_Name
       value: player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8088628950365204298, guid: 608a047a76674e8429ce892e44f49397, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8088628949337385109, guid: 608a047a76674e8429ce892e44f49397, type: 3}

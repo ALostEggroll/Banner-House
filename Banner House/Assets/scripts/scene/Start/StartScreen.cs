@@ -2,13 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ *  This class manages the UI navigation. To add a new screen, add it to the dictionary and enum
+ *  and disable if not currently being used.
+ */
 public class StartScreen : MonoBehaviour
 {
+    // References to all screens that the player can access
     public static Dictionary<Screens, GameObject> screenNavigation;
-    // Start is called before the first frame update
     void Start()
     {
+        // Initializes NavigationButtons with start screen
         NavigationButtons.currentScreen = gameObject;
+        
+        // Creating and adding screens to a dictionary for reference
         screenNavigation = new Dictionary<Screens, GameObject>();
         screenNavigation.Add(Screens.StartScreen, GameObject.Find("StartScreen"));
 
@@ -20,6 +27,13 @@ public class StartScreen : MonoBehaviour
 
         screenNavigation.Add(Screens.ShopScreen, GameObject.Find("ShopScreen"));
         screenNavigation[Screens.ShopScreen].SetActive(false);
+
+        screenNavigation.Add(Screens.CombatUI, GameObject.Find("CombatUI"));
+        screenNavigation[Screens.CombatUI].SetActive(false);
+
+        screenNavigation.Add(Screens.MatchSummary, GameObject.Find("MatchSummary"));
+        screenNavigation[Screens.MatchSummary].SetActive(false);
     }
 }
-public enum Screens {StartScreen, HomeScreen, QuestScreen, ShopScreen}
+// Drop down reference to all screens
+public enum Screens {StartScreen, HomeScreen, QuestScreen, ShopScreen, CombatUI, MatchSummary}
