@@ -33,16 +33,19 @@ public class CombatManager : MonoBehaviour
     // The Enemy team
     private List<UnitController> team2 = new List<UnitController>();
 
-    public bool combatStarted;
+    public static bool combatStarted;
+    public static bool winnerExists;
 
     public void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Combat Started");
             combatStarted = true;
             Time.timeScale = 1f;
         }
+        */
         if (combatStarted && team1.Count == 0)
         {
             Debug.Log("Team 1 is defeated");
@@ -56,12 +59,6 @@ public class CombatManager : MonoBehaviour
             Time.timeScale = 0f;
         }
     }
-
-    public void Start()
-    {
-        Time.timeScale = 0f;
-    }
-
     
 /*
  *  Adds a unit to this class
