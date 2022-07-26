@@ -22,8 +22,9 @@ public class StartButton : MonoBehaviour
         //Debug.Log("Button Clicked!");
         FadeToBlack.FadeIn(()=> {
             Debug.Log("Screen is Black!");
+            GameObject.Find("StartScreen").SetActive(false);
+            GameObject.Find("HomeScreen").SetActive(true);
             FadeToBlack.FadeOut(); 
         });  //calling the FadeToBlack's method FadeIn
-        
     }
 }

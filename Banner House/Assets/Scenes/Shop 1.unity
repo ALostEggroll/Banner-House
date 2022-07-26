@@ -258,6 +258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1342111540}
   - component: {fileID: 1342111539}
+  - component: {fileID: 1342111541}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -342,6 +343,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1342111541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342111538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &2140915914
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,10 +462,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 117739896}
-    - target: {fileID: 2355578103718082258, guid: 4e2bdc2f312c1b04a8521ae56689e7cd, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 117739896}
     - target: {fileID: 2355578104248970030, guid: 4e2bdc2f312c1b04a8521ae56689e7cd, type: 3}
       propertyPath: m_Name
       value: ShopScreen
@@ -533,9 +550,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2355578105216196320, guid: 4e2bdc2f312c1b04a8521ae56689e7cd, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 117739896}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e2bdc2f312c1b04a8521ae56689e7cd, type: 3}
