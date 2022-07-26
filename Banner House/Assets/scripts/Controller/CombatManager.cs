@@ -33,8 +33,7 @@ public class CombatManager : MonoBehaviour
     // The Enemy team
     private List<UnitController> team2 = new List<UnitController>();
 
-    public static bool combatStarted;
-    public static bool winnerExists;
+    public bool combatStarted;
 
     public void Update()
     {
@@ -58,6 +57,13 @@ public class CombatManager : MonoBehaviour
             combatStarted = false;
             Time.timeScale = 0f;
         }
+    }
+    
+    public void onEnable()
+    {
+        team1.Clear();
+        team2.Clear();
+        Time.timeScale = 0f;
     }
     
 /*
