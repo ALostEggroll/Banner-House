@@ -37,12 +37,14 @@ public class CombatManager : MonoBehaviour
 
     public void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Combat Started");
             combatStarted = true;
             Time.timeScale = 1f;
         }
+        */
         if (combatStarted && team1.Count == 0)
         {
             Debug.Log("Team 1 is defeated");
@@ -56,12 +58,13 @@ public class CombatManager : MonoBehaviour
             Time.timeScale = 0f;
         }
     }
-
-    public void Start()
+    
+    public void onEnable()
     {
+        team1.Clear();
+        team2.Clear();
         Time.timeScale = 0f;
     }
-
     
 /*
  *  Adds a unit to this class
