@@ -792,10 +792,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuestScreen
       objectReference: {fileID: 0}
-    - target: {fileID: 3920939776735672973, guid: 0adb9cd98b688e348868daef4090a7ca, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 78.2251
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0adb9cd98b688e348868daef4090a7ca, type: 3}
 --- !u!1 &649582845
@@ -941,14 +937,6 @@ PrefabInstance:
     - target: {fileID: 2355578104248970034, guid: 4e2bdc2f312c1b04a8521ae56689e7cd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4244561536999607152, guid: 4e2bdc2f312c1b04a8521ae56689e7cd, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -6.3500977
-      objectReference: {fileID: 0}
-    - target: {fileID: 4244561536999607152, guid: 4e2bdc2f312c1b04a8521ae56689e7cd, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 26.550293
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e2bdc2f312c1b04a8521ae56689e7cd, type: 3}
@@ -1309,14 +1297,6 @@ PrefabInstance:
     - target: {fileID: 1285944469505825679, guid: f012cdb2da55e3c44b50f9185467f24d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3555066754204566239, guid: f012cdb2da55e3c44b50f9185467f24d, type: 3}
-      propertyPath: m_Intensity
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3555066754206390347, guid: f012cdb2da55e3c44b50f9185467f24d, type: 3}
-      propertyPath: m_Intensity
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f012cdb2da55e3c44b50f9185467f24d, type: 3}
