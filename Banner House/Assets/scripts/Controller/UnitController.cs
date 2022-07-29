@@ -66,8 +66,12 @@ public abstract class UnitController : MonoBehaviour
         if (!agent.isOnNavMesh)
         {
             
-        } 
-        else
+        }
+        else if (CombatManager.Instance.combatPaused)
+        {
+
+        }
+        else if (CombatManager.Instance.combatStarted)
         {
             // Regulates attack rate
             attackCooldown -= Time.deltaTime * stats.attackSpeedModifier;

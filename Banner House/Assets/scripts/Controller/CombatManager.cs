@@ -34,6 +34,7 @@ public class CombatManager : MonoBehaviour
     private List<UnitController> team2 = new List<UnitController>();
 
     public bool combatStarted;
+    public bool combatPaused;
 
     public void Update()
     {
@@ -49,21 +50,33 @@ public class CombatManager : MonoBehaviour
         {
             Debug.Log("Team 1 is defeated");
             combatStarted = false;
-            Time.timeScale = 0f;
+            combatPaused = true;
         }
         else if (combatStarted && team2.Count == 0)
         {
             Debug.Log("Team 2 is defeated");
             combatStarted = false;
-            Time.timeScale = 0f;
+            combatPaused = true;
         }
     }
-    
-    public void onEnable()
+    public void startCombat()
     {
-        team1.Clear();
-        team2.Clear();
-        Time.timeScale = 0f;
+        combatStarted = true;
+    }
+
+    public void stopCombat()
+    {
+        combatStarted = false;
+    }
+
+    public void resumeCombat()
+    {
+        combatPaused = false;
+    }
+
+    public void pauseCombat()
+    {
+        combatPaused = true;
     }
     
 /*
