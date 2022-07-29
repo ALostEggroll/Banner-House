@@ -45,6 +45,9 @@ public abstract class UnitController : MonoBehaviour
         // Adding to CombatManager
         CombatManager.Instance.AddUnit(this);
         InitializeNavMeshAgent();
+
+        
+        HealthBarController.CreateHealthBar(this);
     }
 
     /*
