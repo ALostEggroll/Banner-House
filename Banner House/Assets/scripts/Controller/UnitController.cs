@@ -43,7 +43,7 @@ public abstract class UnitController : MonoBehaviour
         //agent.stoppingDistance = stats.attackRadius;
 
         // Adding to CombatManager
-        CombatManager.Instance.AddUnit(this);
+        // CombatManager.Instance.AddUnit(this);
         InitializeNavMeshAgent();
 
         

@@ -29,9 +29,9 @@ public class CombatManager : MonoBehaviour
     #endregion
 
     // The Player's team
-    private List<UnitController> team1 = new List<UnitController>();
+    [SerializeField] private List<UnitController> team1 = new List<UnitController>();
     // The Enemy team
-    private List<UnitController> team2 = new List<UnitController>();
+    [SerializeField] private List<UnitController> team2 = new List<UnitController>();
 
     public bool combatStarted;
     public bool combatPaused;
@@ -58,6 +58,20 @@ public class CombatManager : MonoBehaviour
             combatStarted = false;
             combatPaused = true;
         }
+    }
+    public void spawnTeams(Vector3 position)
+    {
+        foreach (UnitController unit in team1)
+            unit.team = Team.team1;
+        foreach (UnitController unit in team2)
+            unit.team = Team.team2;
+    }
+    public void spawnTeams(Vector3 position, List<UnitController> allies, List<UnitController> enemies)
+    {
+        foreach (UnitController unit in team1)
+            unit.team = Team.team1;
+        foreach (UnitController unit in team2)
+            unit.team = Team.team2;
     }
     public void startCombat()
     {
