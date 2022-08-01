@@ -30,22 +30,41 @@ public class CombatManager : MonoBehaviour
 
     // The Player's team
     [SerializeField] private List<UnitController> team1 = new List<UnitController>();
+    [SerializeField] private SpawnManager team1Spawner;
     // The Enemy team
     [SerializeField] private List<UnitController> team2 = new List<UnitController>();
+    [SerializeField] private SpawnManager team2Spawner;
+    public GameObject character;
+    public GameObject otherCharacter;
 
     public bool combatStarted;
     public bool combatPaused;
 
     public void Update()
     {
-        /*
         if (Input.GetKeyDown(KeyCode.Space))
+        {
+            List<GameObject> allyObjects = new List<GameObject>();
+            List<GameObject> enemyObjects = new List<GameObject>();
+            Instantiate(character);
+            allyObjects.Add(character);
+            Instantiate(otherCharacter);
+            enemyObjects.Add(otherCharacter);
+            List<UnitController> allies = new List<UnitController>();
+            List<UnitController> enemies = new List<UnitController>();
+            foreach(GameObject ally in allyObjects)
+                allies.Add(ally.GetComponent<UnitController>());
+            foreach(GameObject enemy in enemyObjects)
+                enemies.Add(enemy.GetComponent<UnitController>());
+            InitializeTeams(allies, enemies);
+            team1Spawner.SpawnTeam(allyObjects);
+            team2Spawner.SpawnTeam(enemyObjects);
+        }
+        if (Input.GetKeyDown(KeyCode.S))
         {
             Debug.Log("Combat Started");
             combatStarted = true;
-            Time.timeScale = 1f;
         }
-        */
         if (combatStarted && team1.Count == 0)
         {
             Debug.Log("Team 1 is defeated");
@@ -59,20 +78,6 @@ public class CombatManager : MonoBehaviour
             combatPaused = true;
         }
     }
-    public void spawnTeams(Vector3 position)
-    {
-        foreach (UnitController unit in team1)
-            unit.team = Team.team1;
-        foreach (UnitController unit in team2)
-            unit.team = Team.team2;
-    }
-    public void spawnTeams(Vector3 position, List<UnitController> allies, List<UnitController> enemies)
-    {
-        foreach (UnitController unit in team1)
-            unit.team = Team.team1;
-        foreach (UnitController unit in team2)
-            unit.team = Team.team2;
-    }
     public void InitializeTeams(List<UnitController> allies, List<UnitController> enemies)
     {
         InitializeTeam1(allies);
@@ -80,15 +85,21 @@ public class CombatManager : MonoBehaviour
     }
     public void InitializeTeam1(List<UnitController> allies)
     {
+        Debug.Log("Initializing team1");
         team1 = allies;
         foreach (UnitController unit in team1)
+        {
             unit.team = Team.team1;
+        }
     }
     public void InitializeTeam2(List<UnitController> enemies)
     {
+        Debug.Log("Initializing team2");
         team2 = enemies;
         foreach (UnitController unit in team2)
+        {
             unit.team = Team.team2;
+        }
     }
     public void StartCombat()
     {

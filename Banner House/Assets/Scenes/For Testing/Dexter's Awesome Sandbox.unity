@@ -123,6 +123,48 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: cb9cc5b415941e04790292294f3dec6b, type: 2}
+--- !u!1 &118222011 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4521797688516010194, guid: 6f8671c1036d9644ea1d6801944b4722, type: 3}
+  m_PrefabInstance: {fileID: 6437226581139417121}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &118222013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118222011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead05c8c1b1bdbb4ba94606f8489638c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  location: {x: 0, y: 0, z: 0}
+  xRange: 1
+  yRange: 1
+  zRange: 1
+--- !u!1 &778156412 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2527423070480347145, guid: 6327e7b488f5ac646a2dc10a7f6ebd05, type: 3}
+  m_PrefabInstance: {fileID: 1144260076335040796}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &778156414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778156412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead05c8c1b1bdbb4ba94606f8489638c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  location: {x: 0, y: 0, z: 0}
+  xRange: 1
+  yRange: 1
+  zRange: 1
 --- !u!1 &1218004912
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,7 +415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6421818586559239392, guid: 6327e7b488f5ac646a2dc10a7f6ebd05, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -36.31
+      value: -43.71
       objectReference: {fileID: 0}
     - target: {fileID: 6421818586559239392, guid: 6327e7b488f5ac646a2dc10a7f6ebd05, type: 3}
       propertyPath: m_LocalPosition.y
@@ -521,6 +563,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2921728810308904803, guid: f330cd8674dbc224f8667bb1e9cd1de6, type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 8188114803588566913, guid: 5e7a9794a36378b48ae0b21b552b4ab9, type: 3}
+    - target: {fileID: 2921728810308904803, guid: f330cd8674dbc224f8667bb1e9cd1de6, type: 3}
+      propertyPath: team1Spawner
+      value: 
+      objectReference: {fileID: 778156414}
+    - target: {fileID: 2921728810308904803, guid: f330cd8674dbc224f8667bb1e9cd1de6, type: 3}
+      propertyPath: team2Spawner
+      value: 
+      objectReference: {fileID: 118222013}
+    - target: {fileID: 2921728810308904803, guid: f330cd8674dbc224f8667bb1e9cd1de6, type: 3}
+      propertyPath: otherCharacter
+      value: 
+      objectReference: {fileID: 6077385551819976887, guid: 4ae6a63bad3aa80438b17ce00a4e03a1, type: 3}
     - target: {fileID: 2921728810308904803, guid: f330cd8674dbc224f8667bb1e9cd1de6, type: 3}
       propertyPath: team1.Array.size
       value: 1
