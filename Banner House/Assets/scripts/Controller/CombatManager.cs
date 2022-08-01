@@ -73,22 +73,39 @@ public class CombatManager : MonoBehaviour
         foreach (UnitController unit in team2)
             unit.team = Team.team2;
     }
-    public void startCombat()
+    public void InitializeTeams(List<UnitController> allies, List<UnitController> enemies)
+    {
+        InitializeTeam1(allies);
+        InitializeTeam2(enemies);
+    }
+    public void InitializeTeam1(List<UnitController> allies)
+    {
+        team1 = allies;
+        foreach (UnitController unit in team1)
+            unit.team = Team.team1;
+    }
+    public void InitializeTeam2(List<UnitController> enemies)
+    {
+        team2 = enemies;
+        foreach (UnitController unit in team2)
+            unit.team = Team.team2;
+    }
+    public void StartCombat()
     {
         combatStarted = true;
     }
 
-    public void stopCombat()
+    public void StopCombat()
     {
         combatStarted = false;
     }
 
-    public void resumeCombat()
+    public void ResumeCombat()
     {
         combatPaused = false;
     }
 
-    public void pauseCombat()
+    public void PauseCombat()
     {
         combatPaused = true;
     }
