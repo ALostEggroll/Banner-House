@@ -13,7 +13,7 @@ public abstract class UnitController : MonoBehaviour
 {
     private Transform currentTarget;    // Current targeted unit
     public NavMeshAgent agent;         // This unit
-    [HideInInspector] public CharacterStats stats;       // This unit's stats
+    public CharacterStats stats;       // This unit's stats
 
     //[SerializeField]
     //private CombatUnit unit;
@@ -29,7 +29,7 @@ public abstract class UnitController : MonoBehaviour
     {
         team = t;
     }
-    public void Start()
+    public void OnEnable()
     {
         // Choosing this unit as agent
         agent = GetComponent<NavMeshAgent>();
@@ -40,12 +40,14 @@ public abstract class UnitController : MonoBehaviour
         //stats.attackRadius = unit.attackRadius;
         //agent.stoppingDistance = stats.attackRadius;
 
-        // Adding to CombatManager
-        CombatManager.Instance.AddUnit(this);
         InitializeNavMeshAgent();
 
         
         HealthBarController.CreateHealthBar(this);
+    }
+    public void AddToCombatManager()
+    {
+        CombatManager.Instance.AddUnit(this);
     }
 
     /*
@@ -125,6 +127,8 @@ public abstract class UnitController : MonoBehaviour
      */
     public virtual void TakeDamage(int damage)
     {
+        if (stats == null)
+            Debug.Log("No CharacterStats associated with this gameobject");
         stats.TakeDamage(damage);
     }
 
@@ -150,7 +154,7 @@ public abstract class UnitController : MonoBehaviour
     {
         if (enemy == null || enemy.Count == 0)
         {
-            //Debug.Log("No unit detected in enemy team");
+            Debug.Log("No unit detected in enemy team");
             return null;
         }
 
@@ -183,6 +187,7 @@ public abstract class UnitController : MonoBehaviour
 }
 // Current defined teams
 public enum Team {
+        team0,
         team1,
         team2,
     }

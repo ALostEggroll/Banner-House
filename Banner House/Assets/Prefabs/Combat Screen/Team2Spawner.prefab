@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   units: []
   location: {x: 0, y: 0, z: 0}
+  team: 2
   xRange: 10
   yRange: 10
   zRange: 10

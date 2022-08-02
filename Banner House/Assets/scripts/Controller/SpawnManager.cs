@@ -11,6 +11,7 @@ public class SpawnManager : MonoBehaviour
 {
     public List<GameObject> units;  // Characters to be spawned
     public Vector3 location;        // Location of the spawner
+    public Team team;
     // Bounds of the spawner
     public float xRange;
     public float yRange;
@@ -18,13 +19,13 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         location = transform.position;
-        Debug.Log("location is at" + location);
+        Debug.Log(name + "'s location is at" + location);
     }
-    public void SetTeam(List<GameObject> units)
+    public void SetUnits(List<GameObject> units)
     {
         this.units = units;
     }
-    public void SpawnTeam(List<GameObject> units)
+    public void SpawnUnits(List<GameObject> units)
     {
         foreach(GameObject unit in units)
         {
@@ -39,14 +40,19 @@ public class SpawnManager : MonoBehaviour
         Vector3 randomPoint = new Vector3(xOffset, yOffset, zOffset);
 
         NavMeshHit hit;
-        if (NavMesh.SamplePosition(randomPoint, out hit, 10f, NavMesh.AllAreas))
+        if (NavMesh.SamplePosition(randomPoint, out hit, 50f, NavMesh.AllAreas))
         {
             Debug.Log("Unit " + unit.name + " spawned at " + hit.position);
             Instantiate(unit, randomPoint, Quaternion.identity);
-            Debug.Log("But ended up at " + unit.transform.position);
+            SetTeam(unit);
             //unit.GetComponent<UnitController>().WarpTo(hit.position);
             //Debug.Log("So I forced it to go to " + unit.transform.position);
             //unit.transform.position = randomPoint;
         }
+    }
+    public void SetTeam(GameObject unit)
+    {
+        unit.GetComponent<UnitController>().SetTeam(team);
+        unit.GetComponent<UnitController>().AddToCombatManager();
     }
 }

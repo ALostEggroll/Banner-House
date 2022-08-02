@@ -66,8 +66,8 @@ public class CombatManager : MonoBehaviour
             }
             InitializeTeams(allyObjects, enemyObjects);
             */
-            team1Spawner.SpawnTeam(allyObjects);
-            team2Spawner.SpawnTeam(enemyObjects);
+            team1Spawner.SpawnUnits(allyObjects);
+            team2Spawner.SpawnUnits(enemyObjects);
         }
         // Pressing the start button
         if (Input.GetKeyDown(KeyCode.S))
