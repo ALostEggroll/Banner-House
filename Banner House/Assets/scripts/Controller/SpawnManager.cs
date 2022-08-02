@@ -12,9 +12,9 @@ public class SpawnManager : MonoBehaviour
     public List<GameObject> units;  // Characters to be spawned
     public Vector3 location;        // Location of the spawner
     // Bounds of the spawner
-    public float xRange = 1f;
-    public float yRange = 1f;
-    public float zRange = 1f;
+    public float xRange;
+    public float yRange;
+    public float zRange;
     void Start()
     {
         location = transform.position;
