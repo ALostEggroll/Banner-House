@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6421818586559239392}
+  - component: {fileID: 778156414}
   m_Layer: 0
   m_Name: Team1Spawner
   m_TagString: Untagged
@@ -31,3 +32,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &778156414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2527423070480347145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead05c8c1b1bdbb4ba94606f8489638c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  units: []
+  location: {x: 0, y: 0, z: 0}
+  xRange: 1
+  yRange: 1
+  zRange: 1

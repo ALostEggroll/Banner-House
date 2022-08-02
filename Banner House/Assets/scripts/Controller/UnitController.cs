@@ -12,7 +12,7 @@ using UnityEngine.AI;   // For NavMesh
 public abstract class UnitController : MonoBehaviour
 {
     private Transform currentTarget;    // Current targeted unit
-    private NavMeshAgent agent;         // This unit
+    public NavMeshAgent agent;         // This unit
     [HideInInspector] public CharacterStats stats;       // This unit's stats
 
     //[SerializeField]
@@ -43,7 +43,7 @@ public abstract class UnitController : MonoBehaviour
         //agent.stoppingDistance = stats.attackRadius;
 
         // Adding to CombatManager
-        // CombatManager.Instance.AddUnit(this);
+        CombatManager.Instance.AddUnit(this);
         InitializeNavMeshAgent();
 
         
@@ -176,6 +176,11 @@ public abstract class UnitController : MonoBehaviour
     public float CurrentDistance()
     {
         return Vector3.Distance(transform.position, currentTarget.transform.position);
+    }
+
+    public void WarpTo(Vector3 newPosition)
+    {
+        agent.Warp(newPosition);
     }
 }
 // Current defined teams

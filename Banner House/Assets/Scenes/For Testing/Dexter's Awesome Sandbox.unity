@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ead05c8c1b1bdbb4ba94606f8489638c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  units: []
   location: {x: 0, y: 0, z: 0}
   xRange: 1
   yRange: 1
@@ -161,6 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ead05c8c1b1bdbb4ba94606f8489638c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  units: []
   location: {x: 0, y: 0, z: 0}
   xRange: 1
   yRange: 1
@@ -581,11 +583,11 @@ PrefabInstance:
       objectReference: {fileID: 6077385551819976887, guid: 4ae6a63bad3aa80438b17ce00a4e03a1, type: 3}
     - target: {fileID: 2921728810308904803, guid: f330cd8674dbc224f8667bb1e9cd1de6, type: 3}
       propertyPath: team1.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2921728810308904803, guid: f330cd8674dbc224f8667bb1e9cd1de6, type: 3}
       propertyPath: team2.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2921728810308904803, guid: f330cd8674dbc224f8667bb1e9cd1de6, type: 3}
       propertyPath: team1.Array.data[0]
@@ -595,6 +597,22 @@ PrefabInstance:
       propertyPath: team2.Array.data[0]
       value: 
       objectReference: {fileID: 8188114803588566912, guid: 5e7a9794a36378b48ae0b21b552b4ab9, type: 3}
+    - target: {fileID: 2921728810308904803, guid: f330cd8674dbc224f8667bb1e9cd1de6, type: 3}
+      propertyPath: allyObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2921728810308904803, guid: f330cd8674dbc224f8667bb1e9cd1de6, type: 3}
+      propertyPath: enemyObjects.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2921728810308904803, guid: f330cd8674dbc224f8667bb1e9cd1de6, type: 3}
+      propertyPath: allyObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8188114803588566913, guid: 5e7a9794a36378b48ae0b21b552b4ab9, type: 3}
+    - target: {fileID: 2921728810308904803, guid: f330cd8674dbc224f8667bb1e9cd1de6, type: 3}
+      propertyPath: enemyObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8188114803588566913, guid: 5e7a9794a36378b48ae0b21b552b4ab9, type: 3}
     - target: {fileID: 2921728810308904828, guid: f330cd8674dbc224f8667bb1e9cd1de6, type: 3}
       propertyPath: m_Name
       value: Combat Test
