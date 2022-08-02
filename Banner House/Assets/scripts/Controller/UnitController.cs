@@ -29,8 +29,6 @@ public abstract class UnitController : MonoBehaviour
     {
         team = t;
     }
-
-    // Start is called before the first frame update
     public void Start()
     {
         // Choosing this unit as agent

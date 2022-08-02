@@ -88,25 +88,25 @@ public class CombatManager : MonoBehaviour
             combatPaused = true;
         }
     }
-    public void InitializeTeams(List<GameObject> allies, List<GameObject> enemies)
+    public void InitializeTeams(List<UnitController> allies, List<UnitController> enemies)
     {
         InitializeTeam1(allies);
         InitializeTeam2(enemies);
     }
-    public void InitializeTeam1(List<GameObject> allies)
+    public void InitializeTeam1(List<UnitController> allies)
     {
         Debug.Log("Initializing team1");
         //team1 = allies;
-        foreach (UnitController unit in team1)
+        foreach (UnitController unit in allies)
         {
             unit.team = Team.team1;
         }
     }
-    public void InitializeTeam2(List<GameObject> enemies)
+    public void InitializeTeam2(List<UnitController> enemies)
     {
         Debug.Log("Initializing team2");
         //team2 = enemies;
-        foreach (UnitController unit in team2)
+        foreach (UnitController unit in enemies)
         {
             unit.team = Team.team2;
         }

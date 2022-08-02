@@ -33,9 +33,9 @@ public class SpawnManager : MonoBehaviour
     }
     public void SpawnRandomPoint(GameObject unit)
     {
-        float xOffset = Random.Range(0, xRange);
-        float yOffset = Random.Range(0, yRange);
-        float zOffset = Random.Range(0, zRange);
+        float xOffset = Random.Range(location.x - xRange, location.x + xRange);
+        float yOffset = Random.Range(location.y - yRange, location.y + yRange);
+        float zOffset = Random.Range(location.z - zRange, location.z + zRange);
         Vector3 randomPoint = new Vector3(xOffset, yOffset, zOffset);
 
         NavMeshHit hit;
