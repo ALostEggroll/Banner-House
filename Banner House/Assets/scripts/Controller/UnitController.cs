@@ -29,7 +29,7 @@ public abstract class UnitController : MonoBehaviour
     {
         team = t;
     }
-    public void OnEnable()
+    public void Start()
     {
         // Choosing this unit as agent
         agent = GetComponent<NavMeshAgent>();
@@ -39,16 +39,19 @@ public abstract class UnitController : MonoBehaviour
 
         //stats.attackRadius = unit.attackRadius;
         //agent.stoppingDistance = stats.attackRadius;
-
+        // Adding this unit to Combat Manager
+        CombatManager.Instance.AddUnit(this);
         InitializeNavMeshAgent();
 
         
         HealthBarController.CreateHealthBar(this);
     }
+    /*
     public void AddToCombatManager()
     {
         CombatManager.Instance.AddUnit(this);
     }
+    */
 
     /*
      *  Called at start to initialize NavMesh agent variables
@@ -127,8 +130,8 @@ public abstract class UnitController : MonoBehaviour
      */
     public virtual void TakeDamage(int damage)
     {
-        if (stats == null)
-            Debug.Log("No CharacterStats associated with this gameobject");
+        //if (stats == null)
+            //Debug.Log("No CharacterStats associated with this gameobject");
         stats.TakeDamage(damage);
     }
 
@@ -187,7 +190,6 @@ public abstract class UnitController : MonoBehaviour
 }
 // Current defined teams
 public enum Team {
-        team0,
         team1,
         team2,
     }

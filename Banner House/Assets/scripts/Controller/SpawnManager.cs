@@ -44,15 +44,17 @@ public class SpawnManager : MonoBehaviour
         {
             Debug.Log("Unit " + unit.name + " spawned at " + hit.position);
             Instantiate(unit, randomPoint, Quaternion.identity);
-            SetTeam(unit);
+            //SetTeam(unit);
             //unit.GetComponent<UnitController>().WarpTo(hit.position);
             //Debug.Log("So I forced it to go to " + unit.transform.position);
             //unit.transform.position = randomPoint;
         }
     }
+    /*
     public void SetTeam(GameObject unit)
     {
         unit.GetComponent<UnitController>().SetTeam(team);
         unit.GetComponent<UnitController>().AddToCombatManager();
     }
+    */
 }

@@ -590,7 +590,7 @@ PrefabInstance:
     - target: {fileID: 2921728810308904803, guid: f330cd8674dbc224f8667bb1e9cd1de6, type: 3}
       propertyPath: enemyObjects.Array.data[0]
       value: 
-      objectReference: {fileID: 8188114803588566913, guid: 5e7a9794a36378b48ae0b21b552b4ab9, type: 3}
+      objectReference: {fileID: 8188114803588566913, guid: 03852d5731febc448a6cd89c72bb22cc, type: 3}
     - target: {fileID: 2921728810308904828, guid: f330cd8674dbc224f8667bb1e9cd1de6, type: 3}
       propertyPath: m_Name
       value: Combat Test
