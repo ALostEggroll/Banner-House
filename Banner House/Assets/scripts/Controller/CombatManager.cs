@@ -199,11 +199,11 @@ public class CombatManager : MonoBehaviour
     {
         Debug.Log("Clearing all teams");
         combatStarted = false;
-        combatPaused = true;
+        combatPaused = false;
         foreach (UnitController unit in team1)
-            Destroy(unit);
+            Object.Destroy(unit);
         foreach (UnitController unit in team2)
-            Destroy(unit);
+            Object.Destroy(unit);
         //allyObjects.Clear();
         //enemyObjects.Clear();
     }
