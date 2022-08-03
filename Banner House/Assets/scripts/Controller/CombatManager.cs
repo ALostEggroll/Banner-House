@@ -40,7 +40,6 @@ public class CombatManager : MonoBehaviour
 
     public bool combatStarted;
     public bool combatPaused;
-
     public void Update()
     {
         // Going into combat screen
@@ -66,8 +65,6 @@ public class CombatManager : MonoBehaviour
             }
             InitializeTeams(allyObjects, enemyObjects);
             */
-            team1Spawner.SpawnUnits(allyObjects);
-            team2Spawner.SpawnUnits(enemyObjects);
         }
         // Pressing the start button
         if (Input.GetKeyDown(KeyCode.S))
@@ -87,6 +84,11 @@ public class CombatManager : MonoBehaviour
             combatStarted = false;
             combatPaused = true;
         }
+    }
+    public void SpawnUnits()
+    {
+        team1Spawner.SpawnUnits(allyObjects);
+        team2Spawner.SpawnUnits(enemyObjects);
     }
     public void InitializeTeams(List<UnitController> allies, List<UnitController> enemies)
     {
@@ -165,6 +167,18 @@ public class CombatManager : MonoBehaviour
         }
     }
 
+    public void AddSpawner(SpawnManager spawner)
+    {
+        switch (spawner.team)
+        {
+            case Team.team1:
+                team1Spawner = spawner;
+                break;
+            case Team.team2:
+                team2Spawner = spawner;
+                break;
+        }
+    }
 /*
  *  Returns a list of enemies
  */

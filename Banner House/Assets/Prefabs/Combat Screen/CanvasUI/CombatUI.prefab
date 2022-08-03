@@ -276,8 +276,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team1:
   - {fileID: 8188114803588566912, guid: 5e7a9794a36378b48ae0b21b552b4ab9, type: 3}
+  team1Spawner: {fileID: 0}
   team2:
   - {fileID: 8188114803588566912, guid: 5e7a9794a36378b48ae0b21b552b4ab9, type: 3}
+  team2Spawner: {fileID: 0}
+  allyObjects: []
+  enemyObjects: []
   combatStarted: 0
   combatPaused: 0
 --- !u!114 &2412167904470690595
@@ -1378,6 +1382,10 @@ PrefabInstance:
     - target: {fileID: 8088628949513455059, guid: 608a047a76674e8429ce892e44f49397, type: 3}
       propertyPath: m_Name
       value: player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8088628949513455059, guid: 608a047a76674e8429ce892e44f49397, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 608a047a76674e8429ce892e44f49397, type: 3}

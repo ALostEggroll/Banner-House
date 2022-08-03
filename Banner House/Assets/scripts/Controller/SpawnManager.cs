@@ -20,6 +20,7 @@ public class SpawnManager : MonoBehaviour
     {
         location = transform.position;
         Debug.Log(name + "'s location is at" + location);
+        CombatManager.Instance.AddSpawner(this);
     }
     public void SetUnits(List<GameObject> units)
     {
