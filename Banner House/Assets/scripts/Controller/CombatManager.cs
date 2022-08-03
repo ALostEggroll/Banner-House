@@ -64,6 +64,8 @@ public class CombatManager : MonoBehaviour
                 //enemies.Add(enemy.GetComponent<UnitController>());
             }
             InitializeTeams(allyObjects, enemyObjects);
+            team1Spawner.SpawnUnits(allyObjects);
+            team2Spawner.SpawnUnits(enemyObjects);
             */
         }
         // Pressing the start button
@@ -192,5 +194,17 @@ public class CombatManager : MonoBehaviour
                 return team1;
         }
         return null;
+    }
+    public void ClearTeams()
+    {
+        Debug.Log("Clearing all teams");
+        combatStarted = false;
+        combatPaused = true;
+        foreach (UnitController unit in team1)
+            Destroy(unit);
+        foreach (UnitController unit in team2)
+            Destroy(unit);
+        //allyObjects.Clear();
+        //enemyObjects.Clear();
     }
 }

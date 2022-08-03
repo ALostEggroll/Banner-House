@@ -39,12 +39,12 @@ public class SpawnManager : MonoBehaviour
         float yOffset = Random.Range(location.y - yRange, location.y + yRange);
         float zOffset = Random.Range(location.z - zRange, location.z + zRange);
         Vector3 randomPoint = new Vector3(xOffset, yOffset, zOffset);
-
+        Debug.Log("Point found at " + randomPoint);
         NavMeshHit hit;
         if (NavMesh.SamplePosition(randomPoint, out hit, 50f, NavMesh.AllAreas))
         {
             Debug.Log("Unit " + unit.name + " spawned at " + hit.position);
-            Instantiate(unit, randomPoint, Quaternion.identity);
+            Instantiate(unit, randomPoint, transform.rotation);
             //SetTeam(unit);
             //unit.GetComponent<UnitController>().WarpTo(hit.position);
             //Debug.Log("So I forced it to go to " + unit.transform.position);
