@@ -201,9 +201,13 @@ public class CombatManager : MonoBehaviour
         combatStarted = false;
         combatPaused = false;
         foreach (UnitController unit in team1)
-            Object.Destroy(unit);
+        {
+            Object.Destroy(unit.gameObject);
+        }
         foreach (UnitController unit in team2)
-            Object.Destroy(unit);
+        {
+            Object.Destroy(unit.gameObject);
+        }
         //allyObjects.Clear();
         //enemyObjects.Clear();
     }
