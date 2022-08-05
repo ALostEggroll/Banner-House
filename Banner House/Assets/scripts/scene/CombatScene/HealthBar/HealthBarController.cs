@@ -1,3 +1,4 @@
+//using System.Numerics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,6 +26,7 @@ public class HealthBarController : MonoBehaviour
     {
         //healthBarBlue = GetComponent<Image>();
         // player = FindObjectOfType<PlayerController_Script>();
+        transform.localRotation = Quaternion.identity;
     }
 
 

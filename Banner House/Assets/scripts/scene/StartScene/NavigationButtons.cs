@@ -20,6 +20,8 @@ public class NavigationButtons : MonoBehaviour
             currentScreen = screenToActivate;
             FadeToBlack.FadeOut(); 
         });  //calling the FadeToBlack's method FadeIn
+
+        SoundEffectController.PlayButtonClick();
     }
     // Makes this button associated with the screen that it wants to travel to
     public void Start()
