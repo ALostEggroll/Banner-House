@@ -12,8 +12,8 @@ using UnityEngine.AI;   // For NavMesh
 public abstract class UnitController : MonoBehaviour
 {
     private Transform currentTarget;    // Current targeted unit
-    private NavMeshAgent agent;         // This unit
-    [HideInInspector] public CharacterStats stats;       // This unit's stats
+    public NavMeshAgent agent;         // This unit
+    public CharacterStats stats;       // This unit's stats
 
     //[SerializeField]
     //private CombatUnit unit;
@@ -29,8 +29,6 @@ public abstract class UnitController : MonoBehaviour
     {
         team = t;
     }
-
-    // Start is called before the first frame update
     public void Start()
     {
         // Choosing this unit as agent
@@ -41,14 +39,19 @@ public abstract class UnitController : MonoBehaviour
 
         //stats.attackRadius = unit.attackRadius;
         //agent.stoppingDistance = stats.attackRadius;
-
-        // Adding to CombatManager
+        // Adding this unit to Combat Manager
         CombatManager.Instance.AddUnit(this);
         InitializeNavMeshAgent();
 
         
         HealthBarController.CreateHealthBar(this);
     }
+    /*
+    public void AddToCombatManager()
+    {
+        CombatManager.Instance.AddUnit(this);
+    }
+    */
 
     /*
      *  Called at start to initialize NavMesh agent variables
@@ -66,8 +69,12 @@ public abstract class UnitController : MonoBehaviour
         if (!agent.isOnNavMesh)
         {
             
-        } 
-        else
+        }
+        else if (CombatManager.Instance.combatPaused)
+        {
+
+        }
+        else if (CombatManager.Instance.combatStarted)
         {
             // Regulates attack rate
             attackCooldown -= Time.deltaTime * stats.attackSpeedModifier;
@@ -123,6 +130,8 @@ public abstract class UnitController : MonoBehaviour
      */
     public virtual void TakeDamage(int damage)
     {
+        //if (stats == null)
+            //Debug.Log("No CharacterStats associated with this gameobject");
         stats.TakeDamage(damage);
     }
 
@@ -148,7 +157,7 @@ public abstract class UnitController : MonoBehaviour
     {
         if (enemy == null || enemy.Count == 0)
         {
-            //Debug.Log("No unit detected in enemy team");
+            Debug.Log("No unit detected in enemy team");
             return null;
         }
 
@@ -172,6 +181,11 @@ public abstract class UnitController : MonoBehaviour
     public float CurrentDistance()
     {
         return Vector3.Distance(transform.position, currentTarget.transform.position);
+    }
+
+    public void WarpTo(Vector3 newPosition)
+    {
+        agent.Warp(newPosition);
     }
 }
 // Current defined teams
