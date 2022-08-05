@@ -42,11 +42,11 @@ public class CombatManager : MonoBehaviour
     public bool combatPaused;
     public void Update()
     {
+        /*
         // Going into combat screen
         if (Input.GetKeyDown(KeyCode.Space))
         {
             // Prefabs to be spawned in
-            /*
             //Instantiate(character);
             //allyObjects.Add(character);
             //Instantiate(otherCharacter);
@@ -66,7 +66,6 @@ public class CombatManager : MonoBehaviour
             InitializeTeams(allyObjects, enemyObjects);
             team1Spawner.SpawnUnits(allyObjects);
             team2Spawner.SpawnUnits(enemyObjects);
-            */
         }
         // Pressing the start button
         if (Input.GetKeyDown(KeyCode.S))
@@ -74,15 +73,18 @@ public class CombatManager : MonoBehaviour
             Debug.Log("Combat Started");
             combatStarted = true;
         }
+        */
         if (combatStarted && team1.Count == 0)
         {
             Debug.Log("Team 1 is defeated");
+            CombatUI.PopDefeat.SetActive(true);
             combatStarted = false;
             combatPaused = true;
         }
         else if (combatStarted && team2.Count == 0)
         {
             Debug.Log("Team 2 is defeated");
+            CombatUI.PopVictory.SetActive(true);
             combatStarted = false;
             combatPaused = true;
         }

@@ -14,6 +14,7 @@ public class QuestButtons : NavigationButtons
             currentScreen.SetActive(false);
             screenToActivate.SetActive(true);
             currentScreen = screenToActivate;
+            CombatManager.Instance.ClearTeams();
             CombatManager.Instance.SpawnUnits();
             FadeToBlack.FadeOut(); 
         });  //calling the FadeToBlack's method FadeIn
