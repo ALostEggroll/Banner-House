@@ -17,5 +17,7 @@ public class ExitCombat : NavigationButtons
             CombatManager.Instance.ClearTeams();
             FadeToBlack.FadeOut(); 
         });  //calling the FadeToBlack's method FadeIn
+
+        SoundEffectController.PlayButtonClick();
     }
 }
