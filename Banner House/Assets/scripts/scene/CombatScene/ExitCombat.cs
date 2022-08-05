@@ -2,13 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NavigationButtons : MonoBehaviour
+public class ExitCombat : NavigationButtons
 {
-    public static GameObject currentScreen; // The current screen
-    public Screens nextScreen;               // Screen in string to type which gameobject to move to
-    
-    // Transitions from current screen to next screen
-    public virtual void Clicked()
+    public override void Clicked()
     {
         //Debug.Log("Button Clicked!");
         FadeToBlack.FadeIn(()=> {
@@ -18,12 +14,8 @@ public class NavigationButtons : MonoBehaviour
             currentScreen.SetActive(false);
             screenToActivate.SetActive(true);
             currentScreen = screenToActivate;
+            CombatManager.Instance.ClearTeams();
             FadeToBlack.FadeOut(); 
         });  //calling the FadeToBlack's method FadeIn
-    }
-    // Makes this button associated with the screen that it wants to travel to
-    public void Start()
-    {
-        GetComponent<UnityEngine.UI.Button>().onClick.AddListener(Clicked);
     }
 }

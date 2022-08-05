@@ -450,7 +450,6 @@ GameObject:
   - component: {fileID: 3962030170632746948}
   - component: {fileID: 3671248621268968236}
   - component: {fileID: 6897323287084174010}
-  - component: {fileID: 1430020791655978909}
   m_Layer: 5
   m_Name: PopVictory
   m_TagString: Untagged
@@ -517,18 +516,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1430020791655978909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6620934786591945544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e382a82b99b46c42af0b0431be9d22a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8592487963663187650
 GameObject:
   m_ObjectHideFlags: 0
