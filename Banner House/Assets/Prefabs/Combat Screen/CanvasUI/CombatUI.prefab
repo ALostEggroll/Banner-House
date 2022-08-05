@@ -122,9 +122,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1179832537}
-        m_TargetAssemblyTypeName: CombatUIButtons, Assembly-CSharp
-        m_MethodName: PauseClicked
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SoundEffectController, Assembly-CSharp
+        m_MethodName: PlayButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -525,7 +525,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3713808787567828088}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SoundEffectController, Assembly-CSharp
+        m_MethodName: PlayButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: MusicController, Assembly-CSharp
+        m_MethodName: PlayEndgameMusic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1429610492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1008,7 +1032,7 @@ PrefabInstance:
     - target: {fileID: 503136782347589669, guid: 193a8c583e4682942a4f7a2a309fa9b0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 8089494467373433103}
+      objectReference: {fileID: 0}
     - target: {fileID: 503136782347589669, guid: 193a8c583e4682942a4f7a2a309fa9b0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -1310,6 +1334,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3713808786625678076}
     m_Modifications:
+    - target: {fileID: 8088628949337385105, guid: 608a047a76674e8429ce892e44f49397, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8088628949513455056, guid: 608a047a76674e8429ce892e44f49397, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1399,6 +1427,14 @@ PrefabInstance:
       value: player
       objectReference: {fileID: 0}
     - target: {fileID: 8088628949513455059, guid: 608a047a76674e8429ce892e44f49397, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8088628950365204294, guid: 608a047a76674e8429ce892e44f49397, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8088628950946786252, guid: 608a047a76674e8429ce892e44f49397, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}

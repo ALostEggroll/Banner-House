@@ -18,5 +18,7 @@ public class QuestButtons : NavigationButtons
             CombatManager.Instance.SpawnUnits();
             FadeToBlack.FadeOut(); 
         });  //calling the FadeToBlack's method FadeIn
+
+        SoundEffectController.PlayButtonClick();
     }
 }
