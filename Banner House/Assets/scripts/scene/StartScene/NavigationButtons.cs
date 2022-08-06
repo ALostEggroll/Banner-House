@@ -8,7 +8,7 @@ public class NavigationButtons : MonoBehaviour
     public Screens nextScreen;               // Screen in string to type which gameobject to move to
     
     // Transitions from current screen to next screen
-    public void Clicked()
+    public virtual void Clicked()
     {
         //Debug.Log("Button Clicked!");
         FadeToBlack.FadeIn(()=> {
@@ -20,6 +20,8 @@ public class NavigationButtons : MonoBehaviour
             currentScreen = screenToActivate;
             FadeToBlack.FadeOut(); 
         });  //calling the FadeToBlack's method FadeIn
+
+        SoundEffectController.PlayButtonClick();
     }
     // Makes this button associated with the screen that it wants to travel to
     public void Start()

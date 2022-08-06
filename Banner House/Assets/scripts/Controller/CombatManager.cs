@@ -29,45 +29,120 @@ public class CombatManager : MonoBehaviour
     #endregion
 
     // The Player's team
-    private List<UnitController> team1 = new List<UnitController>();
+    [SerializeField] private List<UnitController> team1 = new List<UnitController>();
+    [SerializeField] private SpawnManager team1Spawner;
     // The Enemy team
-    private List<UnitController> team2 = new List<UnitController>();
+    [SerializeField] private List<UnitController> team2 = new List<UnitController>();
+    [SerializeField] private SpawnManager team2Spawner;
+    // List of prefabs to spawn in. For testing
+    public List<GameObject> allyObjects = new List<GameObject>();
+    public List<GameObject> enemyObjects = new List<GameObject>();
 
     public bool combatStarted;
-
+    public bool combatPaused;
     public void Update()
     {
+        /*
+        // Going into combat screen
         if (Input.GetKeyDown(KeyCode.Space))
+        {
+            // Prefabs to be spawned in
+            //Instantiate(character);
+            //allyObjects.Add(character);
+            //Instantiate(otherCharacter);
+            //enemyObjects.Add(otherCharacter);
+            //List<UnitController> allies = new List<UnitController>();
+            //List<UnitController> enemies = new List<UnitController>();
+            foreach(GameObject ally in allyObjects)
+            {
+                //allies.Add(ally.GetComponent<UnitController>());
+                Instantiate(ally);
+            }
+            foreach(GameObject enemy in enemyObjects)
+            {
+                Instantiate(enemy);
+                //enemies.Add(enemy.GetComponent<UnitController>());
+            }
+            InitializeTeams(allyObjects, enemyObjects);
+            team1Spawner.SpawnUnits(allyObjects);
+            team2Spawner.SpawnUnits(enemyObjects);
+        }
+        // Pressing the start button
+        if (Input.GetKeyDown(KeyCode.S))
         {
             Debug.Log("Combat Started");
             combatStarted = true;
-            Time.timeScale = 1f;
         }
+        */
         if (combatStarted && team1.Count == 0)
         {
             Debug.Log("Team 1 is defeated");
+            CombatUI.PopDefeat.SetActive(true);
             combatStarted = false;
-            Time.timeScale = 0f;
+            combatPaused = true;
         }
         else if (combatStarted && team2.Count == 0)
         {
             Debug.Log("Team 2 is defeated");
+            CombatUI.PopVictory.SetActive(true);
             combatStarted = false;
-            Time.timeScale = 0f;
+            combatPaused = true;
         }
     }
-
-    public void Start()
+    public void SpawnUnits()
     {
-        Time.timeScale = 0f;
+        team1Spawner.SpawnUnits(allyObjects);
+        team2Spawner.SpawnUnits(enemyObjects);
+    }
+    public void InitializeTeams(List<UnitController> allies, List<UnitController> enemies)
+    {
+        InitializeTeam1(allies);
+        InitializeTeam2(enemies);
+    }
+    public void InitializeTeam1(List<UnitController> allies)
+    {
+        Debug.Log("Initializing team1");
+        //team1 = allies;
+        foreach (UnitController unit in allies)
+        {
+            unit.team = Team.team1;
+        }
+    }
+    public void InitializeTeam2(List<UnitController> enemies)
+    {
+        Debug.Log("Initializing team2");
+        //team2 = enemies;
+        foreach (UnitController unit in enemies)
+        {
+            unit.team = Team.team2;
+        }
+    }
+    public void StartCombat()
+    {
+        combatStarted = true;
     }
 
+    public void StopCombat()
+    {
+        combatStarted = false;
+    }
+
+    public void ResumeCombat()
+    {
+        combatPaused = false;
+    }
+
+    public void PauseCombat()
+    {
+        combatPaused = true;
+    }
     
 /*
  *  Adds a unit to this class
  */
     public void AddUnit(UnitController unit)
     {
+        Debug.Log(unit.name + "is added to CombatManager in " + unit.team);
         switch (unit.team)
         {
             case Team.team1:
@@ -84,6 +159,7 @@ public class CombatManager : MonoBehaviour
  */
     public void RemoveUnit(UnitController unit)
     {
+        Debug.Log(unit.name + "is removed from CombatManager in " + unit.team);
         switch (unit.team)
         {
             case Team.team1:
@@ -95,6 +171,18 @@ public class CombatManager : MonoBehaviour
         }
     }
 
+    public void AddSpawner(SpawnManager spawner)
+    {
+        switch (spawner.team)
+        {
+            case Team.team1:
+                team1Spawner = spawner;
+                break;
+            case Team.team2:
+                team2Spawner = spawner;
+                break;
+        }
+    }
 /*
  *  Returns a list of enemies
  */
@@ -108,5 +196,21 @@ public class CombatManager : MonoBehaviour
                 return team1;
         }
         return null;
+    }
+    public void ClearTeams()
+    {
+        Debug.Log("Clearing all teams");
+        combatStarted = false;
+        combatPaused = false;
+        foreach (UnitController unit in team1)
+        {
+            Object.Destroy(unit.gameObject);
+        }
+        foreach (UnitController unit in team2)
+        {
+            Object.Destroy(unit.gameObject);
+        }
+        //allyObjects.Clear();
+        //enemyObjects.Clear();
     }
 }

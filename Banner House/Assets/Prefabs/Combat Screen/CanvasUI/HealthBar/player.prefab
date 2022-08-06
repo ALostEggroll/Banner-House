@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 74.99994, y: 24}
+  m_AnchoredPosition: {x: 74.99994, y: 36}
   m_SizeDelta: {x: 48, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8088628949337385108
@@ -191,7 +191,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 74.99994, y: 24}
+  m_AnchoredPosition: {x: 74.99994, y: 36}
   m_SizeDelta: {x: 48, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8088628950365204293
@@ -239,12 +239,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8088628950365204294}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29ba35e85e22243b774e7270a26817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBarBlue: {fileID: 0}
+  healthBarFill: {fileID: 0}
+  playerBackground: {fileID: 0}
+  enemyBackground: {fileID: 0}
+  playerFill: {fileID: 0}
+  enemyFill: {fileID: 0}
   unit: {fileID: 0}
 --- !u!1 &8088628950946786252
 GameObject:
@@ -279,9 +283,9 @@ RectTransform:
   m_Father: {fileID: 8088628949513455056}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 75, y: 72}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 75, y: -96.4}
   m_SizeDelta: {x: 55, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8088628950946786227
