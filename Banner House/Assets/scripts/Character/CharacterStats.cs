@@ -13,14 +13,18 @@ public class CharacterStats : MonoBehaviour
     public new string name;
     public string description;
     // Character stats
-    public int currentHealth;           // Health tracker
-    public int maxHealth;               // The max health of the unit
-    public int attack;                  // The attack power of the unit
-    public float attackRate;            // The frequency of attack
-    public float attackRadius;          // The max distance a unit can start attacking (defines stopping distance for NavMesh)
-    public int defense;                 // The unit's resistance to attack
-    public float attackSpeedModifier;   // Temporary change in attack frequency
+    public int currentHealth{get; private set;} // Health tracker
+    public int maxHealth;                       // The max health of the unit
+    public int attack;                          // The attack power of the unit
+    public float attackRate;                    // The frequency of attack
+    public float attackRadius;                  // The max distance a unit can start attacking (defines stopping distance for NavMesh)
+    public int defense;                         // The unit's resistance to attack
+    public float attackSpeedModifier;           // Temporary change in attack frequency
 
+    private void Start()
+    {
+        currentHealth = maxHealth;
+    }
     /*
     // Initializes the character with stats saved in CombatUnit
     private void Awake()
