@@ -72,10 +72,11 @@ public abstract class UnitController : MonoBehaviour
         }
         else if (CombatManager.Instance.combatPaused)
         {
-
+            agent.isStopped = true;
         }
         else if (CombatManager.Instance.combatStarted)
         {
+            agent.isStopped = false;
             // Regulates attack rate
             attackCooldown -= Time.deltaTime * stats.attackSpeedModifier;
             

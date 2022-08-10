@@ -77,14 +77,16 @@ public class CombatManager : MonoBehaviour
         if (combatStarted && team1.Count == 0)
         {
             Debug.Log("Team 1 is defeated");
-            CombatUI.PopDefeat.SetActive(true);
+            CombatUI.instance.PopDefeat.SetActive(true);
+            CombatUI.instance.PlayButton.SetActive(false);
             combatStarted = false;
             combatPaused = true;
         }
         else if (combatStarted && team2.Count == 0)
         {
             Debug.Log("Team 2 is defeated");
-            CombatUI.PopVictory.SetActive(true);
+            CombatUI.instance.PopVictory.SetActive(true);
+            CombatUI.instance.PlayButton.SetActive(false);
             combatStarted = false;
             combatPaused = true;
         }
