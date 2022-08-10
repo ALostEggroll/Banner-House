@@ -58,6 +58,8 @@ public abstract class UnitController : MonoBehaviour
      */
     public virtual void InitializeNavMeshAgent()
     {
+        agent.acceleration = 100f;  // Responsive movement
+        agent.radius = 0f;          // Allows agents to stand in eachother
         agent.stoppingDistance = stats.attackRadius;
     }
 
@@ -72,10 +74,11 @@ public abstract class UnitController : MonoBehaviour
         }
         else if (CombatManager.Instance.combatPaused)
         {
-
+            agent.isStopped = true;
         }
         else if (CombatManager.Instance.combatStarted)
         {
+            agent.isStopped = false;
             // Regulates attack rate
             attackCooldown -= Time.deltaTime * stats.attackSpeedModifier;
             
