@@ -289,7 +289,15 @@ MonoBehaviour:
   team2Spawner: {fileID: 0}
   allyObjects:
   - {fileID: 8188114803588566913, guid: 5f01c3130b56ff140986e96f4754a9b9, type: 3}
+  - {fileID: 8188114803588566913, guid: 5f01c3130b56ff140986e96f4754a9b9, type: 3}
+  - {fileID: 8188114803588566913, guid: 5f01c3130b56ff140986e96f4754a9b9, type: 3}
+  - {fileID: 8188114803588566913, guid: 5f01c3130b56ff140986e96f4754a9b9, type: 3}
+  - {fileID: 8188114803588566913, guid: 5f01c3130b56ff140986e96f4754a9b9, type: 3}
   enemyObjects:
+  - {fileID: 8188114803588566913, guid: 016ddfca5e4aa044fa9c690a9908b8da, type: 3}
+  - {fileID: 8188114803588566913, guid: 016ddfca5e4aa044fa9c690a9908b8da, type: 3}
+  - {fileID: 8188114803588566913, guid: 016ddfca5e4aa044fa9c690a9908b8da, type: 3}
+  - {fileID: 8188114803588566913, guid: 016ddfca5e4aa044fa9c690a9908b8da, type: 3}
   - {fileID: 8188114803588566913, guid: 016ddfca5e4aa044fa9c690a9908b8da, type: 3}
   combatStarted: 0
   combatPaused: 0
