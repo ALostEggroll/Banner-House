@@ -621,6 +621,34 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 666350343}
+    - target: {fileID: 7399103683899455601, guid: e73e3951afa7bd64882a073bffae1be5, type: 3}
+      propertyPath: allyObjects.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399103683899455601, guid: e73e3951afa7bd64882a073bffae1be5, type: 3}
+      propertyPath: allyObjects.Array.data[5]
+      value: 
+      objectReference: {fileID: 8188114803588566913, guid: 5f01c3130b56ff140986e96f4754a9b9, type: 3}
+    - target: {fileID: 7399103683899455601, guid: e73e3951afa7bd64882a073bffae1be5, type: 3}
+      propertyPath: allyObjects.Array.data[6]
+      value: 
+      objectReference: {fileID: 8188114803588566913, guid: 5f01c3130b56ff140986e96f4754a9b9, type: 3}
+    - target: {fileID: 7399103683899455601, guid: e73e3951afa7bd64882a073bffae1be5, type: 3}
+      propertyPath: allyObjects.Array.data[7]
+      value: 
+      objectReference: {fileID: 8188114803588566913, guid: 5f01c3130b56ff140986e96f4754a9b9, type: 3}
+    - target: {fileID: 7399103683899455601, guid: e73e3951afa7bd64882a073bffae1be5, type: 3}
+      propertyPath: allyObjects.Array.data[8]
+      value: 
+      objectReference: {fileID: 8188114803588566913, guid: 5f01c3130b56ff140986e96f4754a9b9, type: 3}
+    - target: {fileID: 7399103683899455601, guid: e73e3951afa7bd64882a073bffae1be5, type: 3}
+      propertyPath: allyObjects.Array.data[9]
+      value: 
+      objectReference: {fileID: 8188114803588566913, guid: 5f01c3130b56ff140986e96f4754a9b9, type: 3}
+    - target: {fileID: 7399103683899455601, guid: e73e3951afa7bd64882a073bffae1be5, type: 3}
+      propertyPath: allyObjects.Array.data[10]
+      value: 
+      objectReference: {fileID: 8188114803588566913, guid: 5f01c3130b56ff140986e96f4754a9b9, type: 3}
     - target: {fileID: 7423811208608042346, guid: e73e3951afa7bd64882a073bffae1be5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1456,6 +1484,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 706502863, guid: f012cdb2da55e3c44b50f9185467f24d, type: 3}
+      propertyPath: xRange
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927041142, guid: f012cdb2da55e3c44b50f9185467f24d, type: 3}
+      propertyPath: xRange
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 143373617882374368, guid: f012cdb2da55e3c44b50f9185467f24d, type: 3}
       propertyPath: m_Name
       value: terrain
