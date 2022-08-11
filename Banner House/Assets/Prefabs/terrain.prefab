@@ -659,7 +659,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 118222013, guid: 6f8671c1036d9644ea1d6801944b4722, type: 3}
       propertyPath: xRange
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 118222013, guid: 6f8671c1036d9644ea1d6801944b4722, type: 3}
       propertyPath: zRange
@@ -741,7 +741,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 778156414, guid: 6327e7b488f5ac646a2dc10a7f6ebd05, type: 3}
       propertyPath: xRange
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 778156414, guid: 6327e7b488f5ac646a2dc10a7f6ebd05, type: 3}
       propertyPath: zRange
