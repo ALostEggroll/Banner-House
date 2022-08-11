@@ -59,7 +59,7 @@ public abstract class UnitController : MonoBehaviour
     public virtual void InitializeNavMeshAgent()
     {
         agent.acceleration = 100f;  // Responsive movement
-        agent.radius = 0f;          // Allows agents to stand in eachother
+        agent.radius = 1f;          // Allows agents to stand in eachother
         agent.stoppingDistance = stats.attackRadius;
     }
 
